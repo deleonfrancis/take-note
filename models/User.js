@@ -1,5 +1,9 @@
 const mongoose = require("mongoose");
 
+// const currentDateAndTime = Date.now();
+// const today = new Date(currentDateAndTime);
+// const formattedDateAndTime = today.toUTCString();
+
 const UserSchema = mongoose.Schema({
   firstName: {
     type: String,
@@ -14,9 +18,9 @@ const UserSchema = mongoose.Schema({
     required: true,
     unique: true,
   },
-  password:{
-      type:String,
-      required:true
+  password: {
+    type: String,
+    required: true,
   },
   date: {
     type: Date,
