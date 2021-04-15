@@ -5,12 +5,21 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const config = require("config");
 
+const auth = require("../middleware/auth")
+
 // bring in User.js
 const User = require("../models/User");
 
 // gets logged in user
-router.get("/", (req, res) => {
-  res.json({ message: "hello get logged in user" });
+router.get("/", auth,  async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id).select("-password");
+    res.json(user);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Server Error")
+  }
+  // res.json({ message: "hello get logged in user" });
 });
 
 // sends the data to get authenticated and return a token.
@@ -71,5 +80,17 @@ router.post(
     // });
   }
 );
+
+// // delete a user
+// router.delete("/:id", auth,  async (req, res) => {
+//   try {
+//     const user = await User.findById(req.user.id).select("-password");
+//     res.json(user);
+//   } catch (error) {
+//     console.error(error.message);
+//     res.status(500).send("Server Error")
+//   }
+//   // res.json({ message: "hello get logged in user" });
+// });
 
 module.exports = router;
