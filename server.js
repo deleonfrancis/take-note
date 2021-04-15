@@ -2,12 +2,15 @@
 const express = require("express");
 
 // bring in db.js
-const connectDB = require("./config/db")
+const connectDB = require("./config/db");
 
 connectDB();
 
 // initialize express as a variable called app
 const app = express();
+
+// allows the body to receive data
+app.use(express.json({ extended: false }));
 
 // bring in auth, notes, and users api routes
 app.use("/api/auth", require("./routes/auth"));
