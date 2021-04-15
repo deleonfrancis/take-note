@@ -15,7 +15,7 @@ router.get("/", auth, async (req, res) => {
     res.json(notes);
   } catch (error) {
     console.error(error.message);
-    res.status(500).send("Server Error");
+    res.status(500).send("Server Error.");
   }
 
   // res.json({message: "Hello get all notes"})
@@ -35,7 +35,7 @@ router.post("/", auth, async (req, res) => {
     res.json(note);
   } catch (error) {
     console.error(error.message);
-    res.status(500).send("Server Error");
+    res.status(500).send("Server Error.");
   }
   // res.json({ message: "Hello add new note" });
 });
@@ -55,7 +55,7 @@ router.put("/:id", auth, async (req, res) => {
 
     // make sure user owns the contact
     if (note.user.toString() !== req.user.id)
-      return res.status(401).json({ message: "Not Authorized" });
+      return res.status(401).json({ message: "Not Authorized." });
 
     // update the note
     note = await Note.findByIdAndUpdate(
@@ -66,13 +66,28 @@ router.put("/:id", auth, async (req, res) => {
     res.json(note); //send updated note
   } catch (error) {
     console.error(error.message);
-    res.status(500).send("server error");
+    res.status(500).send("Server error.");
   }
-  //   res.json({ message: "Hello  update note" });
 });
+
 // deletes a note
-router.delete("/:id", (req, res) => {
-  res.json({ message: "Hello  delete note" });
+router.delete("/:id", auth, async (req, res) => {
+  try {
+    //   try and find the note
+    let note = await Note.findById(req.params.id);
+    if (!note) return res.status(404).json({ message: "Note not found." });
+
+    // make sure user owns the contact
+    if (note.user.toString() !== req.user.id)
+      return res.status(401).json({ message: "Not Authorized." });
+
+    //   Delete the note
+    await Note.findByIdAndRemove(req.params.id)
+    res.json({message: "Note removed."})
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("server error.");
+  }
 });
 
 module.exports = router;
