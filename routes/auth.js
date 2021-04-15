@@ -81,16 +81,16 @@ router.post(
   }
 );
 
-// // delete a user
-// router.delete("/:id", auth,  async (req, res) => {
+// delete a user
+// router.delete("/:id", auth,  async (req, res, next) => {
 //   try {
-//     const user = await User.findById(req.user.id).select("-password");
-//     res.json(user);
+//     const user = await User.findByIdAndRemove(req.params.id).exec();
+
 //   } catch (error) {
 //     console.error(error.message);
 //     res.status(500).send("Server Error")
 //   }
-//   // res.json({ message: "hello get logged in user" });
+//   res.json({ message: "user deleted" });
 // });
 
 module.exports = router;
