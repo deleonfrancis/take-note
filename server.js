@@ -1,6 +1,11 @@
 // require express
 const express = require("express");
 
+// bring in db.js
+const connectDB = require("./config/db")
+
+connectDB();
+
 // initialize express as a variable called app
 const app = express();
 
