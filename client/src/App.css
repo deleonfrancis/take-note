@@ -1,3 +1,4 @@
+/* =============App.js============= */
 .App {
   text-align: center;
 }
@@ -35,4 +36,35 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* ================================= */
+
+.escapeModalBtn{
+border: none;
+background: none;
+color: rgb(63, 62, 62);
+}
+
+#filterNote {
+  background-color:rgba(0, 0, 0, 0);
+  color:black;
+  /* border: none; */
+  border-top: none;
+  border-right: none;
+  border-left: none;
+
+  outline:none;
+  height:30px;
+  transition:height 1s;
+  -webkit-transition:height 1s;
+}
+#filterNoter:focus {
+  height:50px;
+  font-size:16px;
+}
+
+.jumbotron{
+  border-radius: 0%;
+  /* border-image: url(./images/notepad_pic.jpg); */
 }
