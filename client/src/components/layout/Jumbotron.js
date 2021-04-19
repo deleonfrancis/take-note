@@ -1,5 +1,4 @@
 import React from "react";
-
 // import notepad_pic from "../../images/notepad_pic.jpg";
 
 function Jumbotron({ openModal }) {

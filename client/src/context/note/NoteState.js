@@ -36,33 +36,33 @@ const NoteState = (props) => {
   };
   const [state, dispatch] = useReducer(noteReducer, initialState);
 
-  // Add Contact
-  const addContact = (note) => {
+  // Add Note
+  const addNote = (note) => {
     note.id = uuidv4();
     dispatch({ type: ADD_NOTE, payload: note });
   };
-  // Delete Contact
-  const deleteContact = (id) => {
+  // Delete Note
+  const deleteNote = (id) => {
     dispatch({ type: DELETE_NOTE, payload: id });
   };
 
-  // Set Current Contact
+  // Set Current Note
   const setCurrent = (note) => {
     dispatch({ type: SET_CURRENT, payload: note });
   };
 
-  // Clear Current Contact
+  // Clear Current Note
   const clearCurrent = () => {
     dispatch({ type: CLEAR_CURRENT });
   };
 
-  // Update Contact
-  const updateContact = (note) => {
+  // Update Note
+  const updateNote = (note) => {
     dispatch({ type: UPDATE_NOTE, payload: note });
   };
 
-  // Filter Contacts
-  const filterContacts = (text) => {
+  // Filter Notes
+  const filterNotes = (text) => {
     dispatch({ type: FILTER_NOTES, payload: text });
   };
 
@@ -77,12 +77,12 @@ const NoteState = (props) => {
         notes: state.notes,
         current: state.current,
         filtered: state.filtered,
-        addContact,
-        deleteContact,
+        addNote,
+        deleteNote,
         setCurrent,
         clearCurrent,
-        updateContact,
-        filterContacts,
+        updateNote,
+        filterNotes,
         clearFilter,
       }}
     >
