@@ -30,6 +30,11 @@ const NoteState = (props) => {
         title: "What?",
         body: "Be great",
       },
+      {
+        id: 4,
+        title: "Nice",
+        body: "Good Job",
+      },
     ],
     current: null,
     filtered: null,
