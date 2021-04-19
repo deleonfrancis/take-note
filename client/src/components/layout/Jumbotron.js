@@ -2,9 +2,7 @@ import React from "react";
 
 // import notepad_pic from "../../images/notepad_pic.jpg";
 
-function Jumbotron({
-  openModal
-}) {
+function Jumbotron({ openModal }) {
   return (
     <div className="jumbotron">
       <h1 className="display-4">takeNote</h1>
@@ -13,13 +11,13 @@ function Jumbotron({
         application.
       </p>
       <hr className="my-4" />
-      <p className="lead">
-        <div>
+      <div>
+        <p className="lead">
           <button className="btn btn-success btn-block" onClick={openModal}>
             Add Note
           </button>
-        </div>
-      </p>
+        </p>
+      </div>
       <div className="input-group mb-3">
         <div className="input-group-prepend">
           <span

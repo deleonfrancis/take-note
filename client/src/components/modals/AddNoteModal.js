@@ -23,7 +23,6 @@ function AddNoteModal({
   setAddNoteModalOpen,
 }) {
   return (
-    <div>
       <Modal
         isOpen={addNoteModalOpen}
         onAfterOpen={afterOpenModal}
@@ -34,24 +33,24 @@ function AddNoteModal({
         <div className="d-flex justify-content-between mb-3">
           <h2 className="">Add A Note</h2>
           <button className="escapeModalBtn" onClick={closeModal}>
-            <i class="fas fa-times fa-lg"></i>
+            <i className="fas fa-times fa-lg"></i>
           </button>
         </div>
 
         <form>
-          <div class="form-group">
-            <label for="exampleFormControlInput1">Title:</label>
+          <div className="form-group">
+            <label htmlFor="exampleFormControlInput1">Title:</label>
             <input
               type="email"
-              class="form-control"
+              className="form-control"
               id="exampleFormControlInput1"
               placeholder="Title"
             />
           </div>
-          <div class="form-group mb-5">
-            <label for="exampleFormControlTextarea1">Note:</label>
+          <div className="form-group mb-5">
+            <label htmlFor="exampleFormControlTextarea1">Note:</label>
             <textarea
-              class="form-control"
+              className="form-control"
               placeholder="Note"
               id="exampleFormControlTextarea1"
               rows="15"
@@ -67,7 +66,6 @@ function AddNoteModal({
           </div>
         </form>
       </Modal>
-    </div>
   );
 }
 
