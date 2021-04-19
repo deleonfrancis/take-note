@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Modal from "react-modal";
 
 const customStyles = {
@@ -17,7 +17,6 @@ const customStyles = {
 Modal.setAppElement("#root");
 
 function AddNoteModal({
-  openModal,
   afterOpenModal,
   closeModal,
   addNoteModalOpen,

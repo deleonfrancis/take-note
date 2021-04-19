@@ -23,7 +23,6 @@ function Home() {
     <div>
       <Jumbotron openModal={openModal} />
       <AddNoteModal
-        openModal={openModal}
         afterOpenModal={afterOpenModal}
         closeModal={closeModal}
         addNoteModalOpen={addNoteModalOpen}
