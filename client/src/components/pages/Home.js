@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Jumbotron from '../layout/Jumbotron'
 import AddNoteModal from '../modals/AddNoteModal'
+import Notes from "../notes/Notes";
 
 function Home() {
       // for add note modal
@@ -28,6 +29,7 @@ function Home() {
         addNoteModalOpen={addNoteModalOpen}
         setAddNoteModalOpen={setAddNoteModalOpen}
       />
+      <Notes />
     </div>
   );
 }

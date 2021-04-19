@@ -1,4 +1,5 @@
 import React from "react";
+import FilterNotes from "../notes/FilterNotes";
 // import notepad_pic from "../../images/notepad_pic.jpg";
 
 function Jumbotron({ openModal }) {
@@ -17,25 +18,7 @@ function Jumbotron({ openModal }) {
           </button>
         </p>
       </div>
-      <div className="input-group mb-3">
-        <div className="input-group-prepend">
-          <span
-            style={{ border: "none" }}
-            className="input-group-text"
-            id="basic-addon1"
-          >
-            <i className="fas fa-search"></i>
-          </span>
-        </div>
-        <input
-          id="filterNote"
-          type="text"
-          className="form-control"
-          placeholder="Search"
-          aria-label="Username"
-          aria-describedby="basic-addon1"
-        />
-      </div>
+      <FilterNotes />
     </div>
   );
 }
