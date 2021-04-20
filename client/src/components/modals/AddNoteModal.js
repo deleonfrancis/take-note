@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import Modal from "react-modal";
+import NoteContext from "../../context/note/noteContext";
 
 const customStyles = {
   content: {
@@ -16,12 +17,10 @@ const customStyles = {
 
 Modal.setAppElement("#root");
 
-function AddNoteModal({
-  afterOpenModal,
-  closeModal,
-  addNoteModalOpen,
-  setAddNoteModalOpen,
-}) {
+function AddNoteModal() {
+  const noteContext = useContext(NoteContext);
+
+  const { afterOpenModal, closeModal, addNoteModalOpen, setAddNoteModalOpen } = noteContext;
   return (
       <Modal
         isOpen={addNoteModalOpen}

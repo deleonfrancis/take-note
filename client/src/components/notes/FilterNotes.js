@@ -1,6 +1,7 @@
 import React from 'react'
 
 function FilterNotes() {
+
     return (
         <div className="input-group mb-3">
         <div className="input-group-prepend">

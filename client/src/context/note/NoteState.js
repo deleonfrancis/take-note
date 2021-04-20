@@ -10,6 +10,8 @@ import {
   UPDATE_NOTE,
   FILTER_NOTES,
   CLEAR_FILTER,
+  SHOW_ADD_MODAL,
+  REMOVE_ADD_MODAL
 } from "../types";
 
 const NoteState = (props) => {
@@ -38,6 +40,7 @@ const NoteState = (props) => {
     ],
     current: null,
     filtered: null,
+    addNoteModalOpen: false,
   };
   const [state, dispatch] = useReducer(noteReducer, initialState);
 
@@ -75,6 +78,20 @@ const NoteState = (props) => {
   const clearFilter = (text) => {
     dispatch({ type: CLEAR_FILTER });
   };
+  // ===========ADD NOTE MODAL=======
+
+   function openModal() {
+     dispatch({type: SHOW_ADD_MODAL})
+   }
+ 
+   function afterOpenModal() {
+     // references are now sync'd and can be accessed.
+     // subtitle.style.color = '#f00';
+   }
+ 
+   function closeModal() {
+    dispatch({type: REMOVE_ADD_MODAL})
+   }
 
   return (
     <NoteContext.Provider
@@ -82,6 +99,7 @@ const NoteState = (props) => {
         notes: state.notes,
         current: state.current,
         filtered: state.filtered,
+        addNoteModalOpen: state.addNoteModalOpen,
         addNote,
         deleteNote,
         setCurrent,
@@ -89,6 +107,9 @@ const NoteState = (props) => {
         updateNote,
         filterNotes,
         clearFilter,
+        openModal,
+        afterOpenModal,
+        closeModal
       }}
     >
       {props.children}

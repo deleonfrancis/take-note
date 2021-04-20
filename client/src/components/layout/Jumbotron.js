@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import NoteContext from "../../context/note/noteContext";
 import FilterNotes from "../notes/FilterNotes";
 // import notepad_pic from "../../images/notepad_pic.jpg";
 
-function Jumbotron({ openModal }) {
+function Jumbotron() {
+  const noteContext = useContext(NoteContext);
+
+  const { openModal } = noteContext;
   return (
     <div className="jumbotron">
       <h1 className="display-4">takeNote</h1>
@@ -18,7 +22,7 @@ function Jumbotron({ openModal }) {
           </button>
         </p>
       </div>
-      <FilterNotes />
+      {<FilterNotes />}
     </div>
   );
 }

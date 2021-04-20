@@ -7,3 +7,5 @@ export const FILTER_NOTES = 'FILTER_NOTES';
 export const CLEAR_FILTER = 'CLEAR_FILTER';
 export const SET_ALERT = 'SET_ALERT';
 export const REMOVE_ALERT = 'REMOVE_ALERT';
+export const SHOW_ADD_MODAL = 'SHOW_ADD_MODAL';
+export const REMOVE_ADD_MODAL = 'REMOVE_ADD_MODAL';

@@ -9,8 +9,8 @@ function NoteItem({ note }) {
             {note.body}
           </p>
           <div className="d-flex justify-content-between">
-          <button className="btn btn-block"><i class="fas fa-edit"></i></button>
-          <button className="btn btn-block"><i class="far fa-trash-alt"></i></button>
+          <button className="btn btn-block"><i className="fas fa-edit"></i></button>
+          <button className="btn btn-block"><i className="far fa-trash-alt"></i></button>
           </div>
         </div>
       </div>
