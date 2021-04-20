@@ -11,7 +11,9 @@ import {
   FILTER_NOTES,
   CLEAR_FILTER,
   SHOW_ADD_MODAL,
-  REMOVE_ADD_MODAL
+  REMOVE_ADD_MODAL,
+  SHOW_DELETE_NOTE_MODAL,
+  REMOVE_DELETE_NOTE_MODAL
 } from "../types";
 
 const NoteState = (props) => {
@@ -41,6 +43,7 @@ const NoteState = (props) => {
     current: null,
     filtered: null,
     addNoteModalOpen: false,
+    confirmDeleteNote: false,
   };
   const [state, dispatch] = useReducer(noteReducer, initialState);
 
@@ -92,6 +95,17 @@ const NoteState = (props) => {
    function closeModal() {
     dispatch({type: REMOVE_ADD_MODAL})
    }
+   // ===========DELETE NOTE MODAL========
+   function openDeleteModal() {
+    dispatch({type: SHOW_DELETE_NOTE_MODAL})
+  }
+  function closeDeleteModal() {
+    dispatch({type: REMOVE_DELETE_NOTE_MODAL})
+   }
+   function afterDeleteOpenModal() {
+    // references are now sync'd and can be accessed.
+    // subtitle.style.color = '#f00';
+  }
 
   return (
     <NoteContext.Provider
@@ -100,6 +114,7 @@ const NoteState = (props) => {
         current: state.current,
         filtered: state.filtered,
         addNoteModalOpen: state.addNoteModalOpen,
+        confirmDeleteNote: state.confirmDeleteNote,
         addNote,
         deleteNote,
         setCurrent,
@@ -108,8 +123,11 @@ const NoteState = (props) => {
         filterNotes,
         clearFilter,
         openModal,
+        closeModal,
         afterOpenModal,
-        closeModal
+        openDeleteModal,
+        closeDeleteModal,
+        afterDeleteOpenModal
       }}
     >
       {props.children}

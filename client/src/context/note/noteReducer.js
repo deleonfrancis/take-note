@@ -7,7 +7,9 @@ import {
   FILTER_NOTES,
   CLEAR_FILTER,
   SHOW_ADD_MODAL,
-  REMOVE_ADD_MODAL
+  REMOVE_ADD_MODAL,
+  SHOW_DELETE_NOTE_MODAL,
+  REMOVE_DELETE_NOTE_MODAL
 } from "../types";
 
 // eslint-disable-next-line
@@ -62,6 +64,16 @@ export default (state, action) => {
       return {
         ...state,
         addNoteModalOpen: false,
+      };
+      case SHOW_DELETE_NOTE_MODAL:
+      return {
+        ...state,
+        confirmDeleteNote: true,
+      };
+      case REMOVE_DELETE_NOTE_MODAL:
+      return {
+        ...state,
+        confirmDeleteNote: false,
       };
     default:
       return state;

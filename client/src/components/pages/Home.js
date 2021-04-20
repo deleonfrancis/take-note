@@ -8,13 +8,7 @@ function Home() {
   return (
     <div>
       <Jumbotron /> 
-      {/* openModal={openModal} /> */}
-      <AddNoteModal
-        // afterOpenModal={afterOpenModal}
-        // closeModal={closeModal}
-        // addNoteModalOpen={addNoteModalOpen}
-        // setAddNoteModalOpen={setAddNoteModalOpen}
-      />
+      <AddNoteModal />
       <div className="container">
         <Notes />
       </div>
