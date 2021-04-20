@@ -10,64 +10,71 @@ const customStylesDelete = {
     bottom: "auto",
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
-    height: "30%",
-    width: "30%",
+    height: "50%",
+    width: "50%",
   },
 };
 
 Modal.setAppElement("#root");
 
-function ConfirmDeleteModal({note, setShowConfirmModal}) {
+function ConfirmDeleteModal({ note, setShowConfirmModal }) {
   const noteContext = useContext(NoteContext);
 
   const {
     deleteNote,
-    // closeDeleteModal,
+    closeDeleteModal,
     confirmDeleteNote,
-    afterDeleteOpenModal
+    afterDeleteOpenModal,
   } = noteContext;
 
-  const {id, title} = note;;
+  const { id, title } = note;
 
   const handleDelete = (e) => {
     e.preventDefault();
     deleteNote(id);
-    setShowConfirmModal(false)
-    // closeDeleteModal();
+    setShowConfirmModal(false);
+    closeDeleteModal();
   };
 
   const handleCancel = () => {
-    setShowConfirmModal(false)
-    // closeDeleteModal();
+    setShowConfirmModal(false);
+    closeDeleteModal();
   };
 
   console.log(title);
 
   return (
-    <Modal
-      isOpen={confirmDeleteNote}
-      onAfterOpen={afterDeleteOpenModal}
-      onRequestClose={handleCancel}
-      style={customStylesDelete}
-      contentLabel="Delete Note Modal"
-    >
-      <div className="d-flex justify-content-between mb-3">
-        <h5 className="">Delete {title}?</h5>
-      </div>
+    <div className="d-flex justify-content-center">
+      <Modal
+        isOpen={confirmDeleteNote}
+        onAfterOpen={afterDeleteOpenModal}
+        onRequestClose={handleCancel}
+        style={customStylesDelete}
+        contentLabel="Delete Note Modal"
+      >
+        <div className="mb-3">
+          <h6 className="d-flex justify-content-center">
+            Are you sure you want to delete "{title}"?
+          </h6>
+        </div>
 
-      <div className="row">
-        <div className="col-sm-6">
-          <button onClick={handleDelete} className="btn btn-danger btn-block">
-            Delete Note
-          </button>
+        <div className="row d-flex justify-content-center mb-5">
+          <div style={{ width: "60%" }} className="">
+            <button
+              onClick={handleDelete}
+              className="btn btn-danger btn-block mb-2"
+            >
+              Delete
+            </button>
+          </div>
+          <div style={{ width: "60%" }} className="">
+            <button onClick={handleCancel} className="btn btn-light btn-block">
+              Cancel
+            </button>
+          </div>
         </div>
-        <div className="col-sm-6">
-          <button onClick={handleCancel} className="btn btn-light btn-block">
-            Cancel
-          </button>
-        </div>
-      </div>
-    </Modal>
+      </Modal>
+    </div>
   );
 }
 

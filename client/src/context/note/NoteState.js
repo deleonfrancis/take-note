@@ -13,7 +13,9 @@ import {
   SHOW_ADD_MODAL,
   REMOVE_ADD_MODAL,
   SHOW_DELETE_NOTE_MODAL,
-  REMOVE_DELETE_NOTE_MODAL
+  REMOVE_DELETE_NOTE_MODAL,
+  SHOW_MODIFY_NOTE_MODAL,
+  REMOVE_MODIFY_NOTE_MODAL,
 } from "../types";
 
 const NoteState = (props) => {
@@ -44,6 +46,7 @@ const NoteState = (props) => {
     filtered: null,
     addNoteModalOpen: false,
     confirmDeleteNote: false,
+    modifyNote: false
   };
   const [state, dispatch] = useReducer(noteReducer, initialState);
 
@@ -83,26 +86,37 @@ const NoteState = (props) => {
   };
   // ===========ADD NOTE MODAL=======
 
-   function openModal() {
-     dispatch({type: SHOW_ADD_MODAL})
-   }
- 
-   function afterOpenModal() {
-     // references are now sync'd and can be accessed.
-     // subtitle.style.color = '#f00';
-   }
- 
-   function closeModal() {
-    dispatch({type: REMOVE_ADD_MODAL})
-   }
-   // ===========DELETE NOTE MODAL========
-   function openDeleteModal() {
-    dispatch({type: SHOW_DELETE_NOTE_MODAL})
+  function openModal() {
+    dispatch({ type: SHOW_ADD_MODAL });
+  }
+
+  function afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    // subtitle.style.color = '#f00';
+  }
+
+  function closeModal() {
+    dispatch({ type: REMOVE_ADD_MODAL });
+  }
+  // ===========DELETE NOTE MODAL========
+  function openDeleteModal() {
+    dispatch({ type: SHOW_DELETE_NOTE_MODAL });
   }
   function closeDeleteModal() {
-    dispatch({type: REMOVE_DELETE_NOTE_MODAL})
-   }
-   function afterDeleteOpenModal() {
+    dispatch({ type: REMOVE_DELETE_NOTE_MODAL });
+  }
+  function afterDeleteOpenModal() {
+    // references are now sync'd and can be accessed.
+    // subtitle.style.color = '#f00';
+  }
+  // ===========MODIFY NOTE MODAL========
+  function openModifyModal() {
+    dispatch({ type: SHOW_MODIFY_NOTE_MODAL });
+  }
+  function closeModifyModal() {
+    dispatch({ type: REMOVE_MODIFY_NOTE_MODAL });
+  }
+  function afterModifyOpenModal() {
     // references are now sync'd and can be accessed.
     // subtitle.style.color = '#f00';
   }
@@ -115,6 +129,7 @@ const NoteState = (props) => {
         filtered: state.filtered,
         addNoteModalOpen: state.addNoteModalOpen,
         confirmDeleteNote: state.confirmDeleteNote,
+        modifyNote: state.modifyNote,
         addNote,
         deleteNote,
         setCurrent,
@@ -127,7 +142,10 @@ const NoteState = (props) => {
         afterOpenModal,
         openDeleteModal,
         closeDeleteModal,
-        afterDeleteOpenModal
+        afterDeleteOpenModal,
+        openModifyModal,
+        closeModifyModal,
+        afterModifyOpenModal
       }}
     >
       {props.children}

@@ -1,11 +1,12 @@
 import React, { useContext, useState } from "react";
 import NoteContext from "../../context/note/noteContext";
 import ConfirmDeleteModal from "../modals/ConfirmDeleteModal";
+import ModifyNoteModal from "../modals/ModifyNoteModal";
 
 function NoteItem({ note }) {
   const noteContext = useContext(NoteContext);
 
-  const { openDeleteModal } = noteContext;
+  const { openDeleteModal, openModifyModal } = noteContext;
   // const { deleteNote, closeDeleteModal  } = noteContext;
 
   // const handleDelete = (e)=>{
@@ -22,21 +23,30 @@ function NoteItem({ note }) {
     setShowConfirmModal(true)
   }
 
+  const [showModifyModal, setShowModifyModal] = useState(false)
+  const showModifyNoteModal = () =>{
+    openModifyModal()
+    setShowModifyModal(true)
+  }
+
+
   return (
     <div id={`#${note.id}`} className="card m-2" style={{ width: "20rem" }}>
       <div className="card-body">
         <h5 className="card-title">{note.title}</h5>
         <p className="card-text">{note.body}</p>
         <div className="d-flex justify-content-between">
-          <button className="btn btn-block">
+          <button onClick={showModifyNoteModal} className="btn btn-block">
             <i className="fas fa-edit"></i>
           </button>
+          <br />
           <button onClick={showConfirmDeleteModal} className="btn btn-block">
             <i className="far fa-trash-alt"></i>
           </button>
         </div>
       </div>
       {showConfirmModal && <ConfirmDeleteModal note={note} setShowConfirmModal={setShowConfirmModal} />}
+      {showModifyModal && <ModifyNoteModal note={note} setShowModifyModal={setShowModifyModal} />}
     </div>
   );
 }

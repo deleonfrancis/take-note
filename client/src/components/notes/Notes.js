@@ -5,13 +5,15 @@ import NoteItem from "./NoteItem";
 function Notes() {
   const noteContext = useContext(NoteContext);
 
-  const { notes } = noteContext;
+  const { notes, filtered } = noteContext;
   return (
     <>
       <div className="row">
-        {notes.map((note) => (
+      {filtered !== null ? filtered.map((note) => (
           <NoteItem key={note.id} note={note} />
-        ))}
+        )) : notes.map((note) => (
+          <NoteItem key={note.id} note={note} />
+        )) }
       </div>
     </>
   );

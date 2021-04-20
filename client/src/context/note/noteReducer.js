@@ -9,7 +9,9 @@ import {
   SHOW_ADD_MODAL,
   REMOVE_ADD_MODAL,
   SHOW_DELETE_NOTE_MODAL,
-  REMOVE_DELETE_NOTE_MODAL
+  REMOVE_DELETE_NOTE_MODAL,
+  SHOW_MODIFY_NOTE_MODAL,
+  REMOVE_MODIFY_NOTE_MODAL,
 } from "../types";
 
 // eslint-disable-next-line
@@ -74,6 +76,16 @@ export default (state, action) => {
       return {
         ...state,
         confirmDeleteNote: false,
+      };
+      case SHOW_MODIFY_NOTE_MODAL:
+      return {
+        ...state,
+        modifyNote: true,
+      };
+      case REMOVE_MODIFY_NOTE_MODAL:
+      return {
+        ...state,
+        modifyNote: false,
       };
     default:
       return state;
