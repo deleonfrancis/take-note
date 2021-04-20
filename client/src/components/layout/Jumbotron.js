@@ -6,7 +6,10 @@ import FilterNotes from "../notes/FilterNotes";
 function Jumbotron() {
   const noteContext = useContext(NoteContext);
 
-  const { openModal } = noteContext;
+  const { openModal, notes } = noteContext;
+
+  const notesLessThanOne = notes.length >= 2
+
   return (
     <div className="jumbotron">
       <h1 className="display-4">takeNote</h1>
@@ -22,7 +25,7 @@ function Jumbotron() {
           </button>
         </p>
       </div>
-      {<FilterNotes />}
+      {notesLessThanOne && <FilterNotes />}
     </div>
   );
 }

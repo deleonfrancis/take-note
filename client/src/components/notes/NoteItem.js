@@ -6,26 +6,16 @@ import ModifyNoteModal from "../modals/ModifyNoteModal";
 function NoteItem({ note }) {
   const noteContext = useContext(NoteContext);
 
-  const { openDeleteModal, openModifyModal } = noteContext;
-  // const { deleteNote, closeDeleteModal  } = noteContext;
-
-  // const handleDelete = (e)=>{
-  //   e.preventDefault();
-  //   deleteNote(note.id);
-  //   // deleteNote({...note, [e.target.id]: e.target.value});
-  //   closeDeleteModal();
-  // }
+  const { openDeleteModal } = noteContext;
 
   const [showConfirmModal, setShowConfirmModal] = useState(false)
-
   const showConfirmDeleteModal = (e) =>{
     openDeleteModal(e)
     setShowConfirmModal(true)
   }
 
   const [showModifyModal, setShowModifyModal] = useState(false)
-  const showModifyNoteModal = () =>{
-    openModifyModal()
+  const showModifyNoteModal = (note) =>{
     setShowModifyModal(true)
   }
 

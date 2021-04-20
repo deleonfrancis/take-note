@@ -23,7 +23,7 @@ function ModifyNoteModal({note, setShowModifyModal}) {
   const {
     afterModifyOpenModal,
     closeModifyModal,
-    modifyNote,
+    // modifyNote,
     updateNote,
     // setAddNoteModalOpen,
     // updateNote,
@@ -42,18 +42,18 @@ function ModifyNoteModal({note, setShowModifyModal}) {
   
   const handleSave = (e) => {
     e.preventDefault();
-    updateNote(note);
-    closeModifyModal()
+    updateNote(noteContent);
+    setShowModifyModal(false)
   };
 
   const handleCancel = e =>{
     setShowModifyModal(false)
-    closeModifyModal()
+    // closeModifyModal()
   }
 
   return (
     <Modal
-      isOpen={modifyNote}
+      isOpen={true}
       onAfterOpen={afterModifyOpenModal}
       onRequestClose={closeModifyModal}
       style={customStylesModify}
