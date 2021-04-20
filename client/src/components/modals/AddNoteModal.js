@@ -24,9 +24,9 @@ function AddNoteModal() {
     afterOpenModal,
     closeModal,
     addNoteModalOpen,
-    setAddNoteModalOpen,
+    // setAddNoteModalOpen,
     addNote,
-    updateNote,
+    // updateNote,
   } = noteContext;
 
   const [note, setNote] = useState({
@@ -61,6 +61,14 @@ function AddNoteModal() {
     //   // clearCurrent();
     // }
   };
+
+  const handleCancel = e =>{
+    setNote({
+      title: " ",
+      body: " ",
+    });
+    closeModal()
+  }
 
   return (
     <Modal
@@ -109,7 +117,7 @@ function AddNoteModal() {
             </button>
           </div>
           <div className="col-sm-6">
-            <button className="btn btn-danger btn-block">Cancel</button>
+            <button onClick={handleCancel} className="btn btn-danger btn-block">Cancel</button>
           </div>
         </div>
       </form>
