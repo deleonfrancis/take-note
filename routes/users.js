@@ -42,7 +42,8 @@ router.post(
         // bad request with message
         res
           .status(400)
-          .json({ message: `A user with the email ${email} already exist.` });
+          // .json({ message: `A user with the email ${email} already exist.` });
+          .json({ msg: "User already exists" });
       }
 
       // creates a new user
