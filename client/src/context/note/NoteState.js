@@ -25,32 +25,32 @@ const NoteState = (props) => {
         id: 1,
         title: "Note 1",
         body: "Be Legendary",
-        date: "Nov 23, 2020"
+        date: "Nov 23, 2020",
       },
       {
         id: 2,
         title: "Now",
         body: "Everyday",
-        date: "Dec 30, 2020"
+        date: "Dec 30, 2020",
       },
       {
         id: 3,
         title: "What?",
         body: "Be great",
-        date: "Aug 23, 1986"
+        date: "Aug 23, 1986",
       },
       {
         id: 4,
         title: "Nice",
         body: "Good Job",
-        date: "Dec 31, 1993"
+        date: "Dec 31, 1993",
       },
     ],
     current: null,
     filtered: null,
     addNoteModalOpen: false,
     confirmDeleteNote: false,
-    modifyNote: false
+    modifyNote: false,
   };
   const [state, dispatch] = useReducer(noteReducer, initialState);
 
@@ -149,7 +149,7 @@ const NoteState = (props) => {
         afterDeleteOpenModal,
         openModifyModal,
         closeModifyModal,
-        afterModifyOpenModal
+        afterModifyOpenModal,
       }}
     >
       {props.children}
