@@ -1,6 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useRef, useEffect } from "react";
 import Modal from "react-modal";
 import NoteContext from "../../context/note/noteContext";
+
 
 const customStyles = {
   content: {
@@ -18,6 +19,14 @@ const customStyles = {
 Modal.setAppElement("#root");
 
 function AddNoteModal() {
+
+  // const inputEl = useRef(null);
+  // useEffect(() => {
+  //   inputEl.current.focus();
+  // }, [])
+
+
+
   const noteContext = useContext(NoteContext);
 
   const {
@@ -82,6 +91,7 @@ function AddNoteModal() {
             placeholder="Title"
             onChange={onChange}
             value={title}
+            // ref={inputEl}
           />
         </div>
         <div className="form-group mb-5">

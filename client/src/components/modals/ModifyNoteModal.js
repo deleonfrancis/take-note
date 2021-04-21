@@ -29,10 +29,10 @@ function ModifyNoteModal({ note, setShowModifyModal }) {
     // updateNote,
   } = noteContext;
 
-  const [originalNote, setOriginalNote] = useState({
-    title: `${note.title}`,
-    body: `${note.body}`,
-  });
+  // const [originalNote, setOriginalNote] = useState({
+  //   title: `${note.title}`,
+  //   body: `${note.body}`,
+  // });
 
   // const originalNote = {...note}
 

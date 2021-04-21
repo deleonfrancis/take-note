@@ -8,17 +8,17 @@ function Jumbotron() {
 
   const { openModal, notes } = noteContext;
 
-  const notesLessThanOne = notes.length >= 2
+  const notesLessThanOne = notes.length >= 2;
 
   return (
-    <div className="jumbotron">
+    <div className="jumbotron pb-3">
       <h1 className="display-4">takeNote</h1>
       <p className="lead">
         Keep track of your notes in this secure and user friendly web
         application.
       </p>
       <hr className="my-4" />
-      <div>
+      <div style={{width:"50%", margin:"auto"}} className="my-5">
         <p className="lead">
           <button className="btn btn-success btn-block" onClick={openModal}>
             Compose A Note
@@ -26,6 +26,9 @@ function Jumbotron() {
         </p>
       </div>
       {notesLessThanOne && <FilterNotes />}
+      <button className="btn mt-3">
+        <i class="fas fa-sign-out-alt">Logout</i>
+      </button>
     </div>
   );
 }

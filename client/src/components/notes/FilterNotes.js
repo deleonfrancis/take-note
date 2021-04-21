@@ -21,7 +21,7 @@ function FilterNotes() {
   };
 
   return (
-    <div className="input-group mb-3">
+    <div style={{width:"70%", margin:"auto"}} className="input-group mb-3">
       <div className="input-group-prepend">
         <span
           style={{ border: "none" }}
