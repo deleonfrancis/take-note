@@ -21,17 +21,17 @@ function NoteItem({ note }) {
 
 
   return (
-    <div id={`#${note.id}`} className="card m-2" style={{ width: "20rem" }}>
+    <div id={`#${note.id}`} className="card m-2 cardBg" style={{ width: "20rem" }}>
       <div className="card-body">
         <h5 className="card-title">{note.title}</h5>
         <p className="card-text">{note.body}</p>
         <div className="d-flex justify-content-between">
           <button onClick={showModifyNoteModal} className="btn btn-block">
-            <i className="fas fa-edit"></i>
+            <i className="fas fa-edit text-info"><span className="" style={{}}><br/>View/Edit</span></i>
           </button>
           <br />
           <button onClick={showConfirmDeleteModal} className="btn btn-block">
-            <i className="far fa-trash-alt"></i>
+            <i className="far fa-trash-alt text-danger"> <span><br/>Delete</span></i>
           </button>
         </div>
       </div>

@@ -39,6 +39,14 @@
 }
 
 /* ================================= */
+body{
+  background-color: #536162;
+}
+
+.cardBg{
+  background-color: #f3f4ed;
+}
+/* ================================= */
 
 .escapeModalBtn{
 border: none;
