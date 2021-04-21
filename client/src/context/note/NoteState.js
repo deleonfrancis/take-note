@@ -25,21 +25,25 @@ const NoteState = (props) => {
         id: 1,
         title: "Note 1",
         body: "Be Legendary",
+        date: "Nov 23, 2020"
       },
       {
         id: 2,
         title: "Now",
         body: "Everyday",
+        date: "Dec 30, 2020"
       },
       {
         id: 3,
         title: "What?",
         body: "Be great",
+        date: "Aug 23, 1986"
       },
       {
         id: 4,
         title: "Nice",
         body: "Good Job",
+        date: "Dec 31, 1993"
       },
     ],
     current: null,

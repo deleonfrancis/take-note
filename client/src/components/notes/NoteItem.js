@@ -27,8 +27,8 @@ function NoteItem({ note }) {
       <div className="card-body">
         <h5 className="card-title">{(note.title.length >=10) ? `${note.title.slice(0, 10)}...` : note.title}</h5>
         <hr style={{width:"70%"}}/>
-        <p className="card-text text-muted">{(note.body.length >= 20) ? `${note.body.slice(0, 20)}...` : note.body}</p>
-        <div className="d-flex justify-content-between">
+        <p className="card-text text-muted mb-0">{(note.body.length >= 20) ? `${note.body.slice(0, 20)}...` : note.body}</p>
+        <div className="d-flex justify-content-between my-3">
           <button onClick={showModifyNoteModal} className="btn btn-block">
             <i className="fas fa-edit text-info"><span className="" style={{}}><br/>View/Edit</span></i>
           </button>
@@ -37,6 +37,7 @@ function NoteItem({ note }) {
             <i className="far fa-trash-alt text-danger"> <span><br/>Delete</span></i>
           </button>
         </div>
+        <p className="text-muted mb-0">{note.date}</p>
       </div>
       {showConfirmModal && <ConfirmDeleteModal note={note} setShowConfirmModal={setShowConfirmModal} />}
       {showModifyModal && <ModifyNoteModal note={note} setShowModifyModal={setShowModifyModal} />}
