@@ -17,7 +17,7 @@ const customStylesModify = {
 
 Modal.setAppElement("#root");
 
-function ModifyNoteModal({note, setShowModifyModal}) {
+function ModifyNoteModal({ note, setShowModifyModal }) {
   const noteContext = useContext(NoteContext);
 
   const {
@@ -29,6 +29,13 @@ function ModifyNoteModal({note, setShowModifyModal}) {
     // updateNote,
   } = noteContext;
 
+  const [originalNote, setOriginalNote] = useState({
+    title: `${note.title}`,
+    body: `${note.body}`,
+  });
+
+  // const originalNote = {...note}
+
   const [noteContent, setNoteContent] = useState({
     title: `${note.title}`,
     body: `${note.body}`,
@@ -36,20 +43,24 @@ function ModifyNoteModal({note, setShowModifyModal}) {
 
   // const { title, body } = note;
 
-  const onChange = (e) =>{
-      setNoteContent({ ...note, [e.target.name]: e.target.value });
-  }
-  
+  const onChange = (e) => {
+    setNoteContent({ ...note, [e.target.name]: e.target.value });
+  };
+
   const handleSave = (e) => {
     e.preventDefault();
     updateNote(noteContent);
-    setShowModifyModal(false)
+    setShowModifyModal(false);
+  };
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    updateNote(noteContent);
   };
 
-  const handleCancel = e =>{
-    setShowModifyModal(false)
-    // closeModifyModal()
-  }
+  // const handleCancel = (e) => {
+  //   setNoteContent(originalNote);
+  //   setShowModifyModal(false);
+  // };
 
   return (
     <Modal
@@ -59,8 +70,7 @@ function ModifyNoteModal({note, setShowModifyModal}) {
       style={customStylesModify}
       contentLabel="Modify Note Modal"
     >
-
-      <form >
+      <form>
         <div className="form-group">
           <label htmlFor="exampleFormControlInput1">Title:</label>
           <input
@@ -70,6 +80,7 @@ function ModifyNoteModal({note, setShowModifyModal}) {
             id="exampleFormControlInput1"
             placeholder="Title"
             onChange={onChange}
+            onBlur={handleUpdate}
             value={noteContent.title}
           />
         </div>
@@ -79,21 +90,30 @@ function ModifyNoteModal({note, setShowModifyModal}) {
             className="form-control"
             placeholder="Note"
             onChange={onChange}
+            onBlur={handleUpdate}
             name="body"
             value={noteContent.body}
             id="exampleFormControlTextarea1"
             rows="15"
           ></textarea>
         </div>
-        <div className="row">
-          <div className="col-sm-6">
-            <button onClick={handleSave} className="btn btn-success btn-block" >
-              Save
+        <div
+          className="row d-flex justify-content-center"
+          style={{ width: "60%", margin: "auto" }}
+        >
+          <div className="col-sm-12">
+            <button
+              onClick={handleSave}
+              className="btn btn-success btn-block bg-primary mb-3"
+            >
+              Done
             </button>
           </div>
-          <div className="col-sm-6">
-            <button onClick={handleCancel} className="btn btn-danger btn-block">Cancel</button>
-          </div>
+          {/* <div className="col-sm-12">
+            <button onClick={handleCancel} className="btn btn-light btn-block">
+              Cancel
+            </button>
+          </div> */}
         </div>
       </form>
     </Modal>

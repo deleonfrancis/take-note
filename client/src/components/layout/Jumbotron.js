@@ -21,7 +21,7 @@ function Jumbotron() {
       <div>
         <p className="lead">
           <button className="btn btn-success btn-block" onClick={openModal}>
-            Add Note
+            Compose A Note
           </button>
         </p>
       </div>

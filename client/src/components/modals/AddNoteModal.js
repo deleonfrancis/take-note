@@ -30,45 +30,31 @@ function AddNoteModal() {
   } = noteContext;
 
   const [note, setNote] = useState({
-    title: " ",
-    body: " ",
+    title: "",
+    body: "",
   });
 
   const { title, body } = note;
 
-  const onChange = (e) =>
-  setNote({ ...note, [e.target.name]: e.target.value });
-
+  const onChange = (e) => setNote({ ...note, [e.target.name]: e.target.value });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     addNote(note);
-      setNote({
-        title: " ",
-        body: " ",
-      });
-      closeModal()
-    // if (note === null) {
-    //   addNote(note);
-    //   setNote({
-    //     title: " ",
-    //     body: " ",
-    //   });
-    //   closeModal()
-
-    // } else {
-    //   updateNote(note);
-    //   // clearCurrent();
-    // }
+    setNote({
+      title: "",
+      body: "",
+    });
+    closeModal();
   };
 
-  const handleCancel = e =>{
+  const handleCancel = (e) => {
     setNote({
-      title: " ",
-      body: " ",
+      title: "",
+      body: "",
     });
-    closeModal()
-  }
+    closeModal();
+  };
 
   return (
     <Modal
@@ -85,7 +71,7 @@ function AddNoteModal() {
         </button>
       </div>
 
-      <form >
+      <form>
         <div className="form-group">
           <label htmlFor="exampleFormControlInput1">Title:</label>
           <input
@@ -110,14 +96,24 @@ function AddNoteModal() {
             rows="15"
           ></textarea>
         </div>
-        <div className="row">
-          <div className="col-sm-6">
-            <button onClick={handleSubmit} className="btn btn-success btn-block" >
+        <div className="row" style={{ width: "60%", margin: "auto" }}>
+          <div className="col-sm-12">
+            <button
+              onClick={handleSubmit}
+              className={
+                title.length < 1 || body.length < 1
+                  ? "btn btn-secondary btn-block mb-3"
+                  : "btn btn-success btn-block mb-3"
+              }
+              disabled={title.length < 1 || body.length < 1}
+            >
               Create Note
             </button>
           </div>
-          <div className="col-sm-6">
-            <button onClick={handleCancel} className="btn btn-danger btn-block">Cancel</button>
+          <div className="col-sm-12">
+            <button onClick={handleCancel} className="btn btn-danger btn-block">
+              Cancel
+            </button>
           </div>
         </div>
       </form>

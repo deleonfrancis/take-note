@@ -19,14 +19,14 @@ function NoteItem({ note }) {
     setShowModifyModal(true)
   }
 
-  const displayNote = `${note.body.slice(0, 20)} ...`
+  // const displayNote = `${note.body.slice(0, 20)}...`
 
 
   return (
     <div id={`#${note.id}`} className="card m-2 cardBg" style={{ width: "20rem" }}>
       <div className="card-body">
-        <h5 className="card-title">{note.title}</h5>
-        <p className="card-text">{displayNote}</p>
+        <h5 className="card-title">{(note.title.length >=10) ? `${note.title.slice(0, 10)}...` : note.title}</h5>
+        <p className="card-text">{(note.body.length >= 20) ? `${note.body.slice(0, 20)}...` : note.body}</p>
         <div className="d-flex justify-content-between">
           <button onClick={showModifyNoteModal} className="btn btn-block">
             <i className="fas fa-edit text-info"><span className="" style={{}}><br/>View/Edit</span></i>
