@@ -35,7 +35,6 @@ function AddNoteModal() {
     addNoteModalOpen,
     // setAddNoteModalOpen,
     addNote,
-    // updateNote,
   } = noteContext;
 
   const [note, setNote] = useState({

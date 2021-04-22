@@ -10,7 +10,7 @@ function FilterNotes() {
       text.current.value = "";
     }
   });
-  const { filterNotes, clearFilter, filtered } = noteContext;
+  const {notes, loading, filterNotes, clearFilter, filtered } = noteContext;
 
   const handleChange = (e) => {
     if (text.current.value !== "") {
@@ -19,6 +19,13 @@ function FilterNotes() {
       clearFilter();
     }
   };
+
+  if (notes !== null && notes.length >=2 && !loading) {
+    return (
+      <div>
+      </div>
+    );
+  }
 
   return (
     <div style={{width:"70%", margin:"auto"}} className="input-group mb-3">

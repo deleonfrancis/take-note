@@ -19,7 +19,7 @@ router.get("/", auth,  async (req, res) => {
     console.error(error.message);
     res.status(500).send("Server Error")
   }
-  // res.json({ message: "hello get logged in user" });
+  // res.json({ msg: "hello get logged in user" });
 });
 
 // sends the data to get authenticated and return a token.
@@ -42,13 +42,13 @@ router.post(
       let user = await User.findOne({ email });
 
       if (!user) {
-        // bad request with message
+        // bad request with msg
        res.status(400).json({ msg: "Invalid Credentials" });
       }
 
       const isMatch = await bcrypt.compare(password, user.password);
       if (!isMatch) {
-        // bad request with message
+        // bad request with msg
          res.status(400).json({ msg: "Invalid Password" });
       }
       // get jwt token
@@ -75,7 +75,7 @@ router.post(
       res.status(500).send("Server Error");
     }
     // res.json({
-    //   message:
+    //   msg:
     //     "hello post user, sends the data to get authenticated and return a token.",
     // });
   }
@@ -87,10 +87,10 @@ router.post(
 //     const user = await User.findByIdAndRemove(req.params.id).exec();
 
 //   } catch (error) {
-//     console.error(error.message);
+//     console.error(error.msg);
 //     res.status(500).send("Server Error")
 //   }
-//   res.json({ message: "user deleted" });
+//   res.json({ msg: "user deleted" });
 // });
 
 module.exports = router;

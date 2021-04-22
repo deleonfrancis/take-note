@@ -18,7 +18,7 @@ app.use("/api/notes", require("./routes/notes"));
 app.use("/api/users", require("./routes/users"));
 
 // home endpoint(route)
-app.get("/", (req, res) => res.json({ message: "hello json" }));
+app.get("/", (req, res) => res.json({ msg: "hello json" }));
 
 // variable for port listening on. process.env.port will be used in deployment and 5000 will be used in production
 const PORT = process.env.PORT || 7000;

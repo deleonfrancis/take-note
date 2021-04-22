@@ -16,12 +16,14 @@ import {
   REMOVE_DELETE_NOTE_MODAL,
   SHOW_MODIFY_NOTE_MODAL,
   REMOVE_MODIFY_NOTE_MODAL,
-  NOTE_ERROR
+  NOTE_ERROR,
+  GET_NOTES,
+  CLEAR_NOTES
 } from "../types";
 
 const NoteState = (props) => {
   const initialState = {
-    notes: [],
+    notes: null,
     current: null,
     filtered: null,
     addNoteModalOpen: false,
@@ -30,6 +32,17 @@ const NoteState = (props) => {
     error: null
   };
   const [state, dispatch] = useReducer(noteReducer, initialState);
+
+  // Get Notes
+  const getNotes = async () => {
+
+    try {
+      const res = await axios.get("/api/notes");
+      dispatch({ type: GET_NOTES, payload: res.data });
+    } catch (error) {
+      dispatch({ type: NOTE_ERROR, payload: error.response.msg });
+    }
+  };
 
   // Add Note
   const addNote = async (note) => {
@@ -41,8 +54,8 @@ const NoteState = (props) => {
     try {
       const res = await axios.post("/api/notes", note, config);
       dispatch({ type: ADD_NOTE, payload: res.data });
-    } catch (error) {
-      dispatch({ type: NOTE_ERROR, payload: error.response.msg });
+    } catch (err) {
+      dispatch({ type: NOTE_ERROR, payload: err });
     }
   };
   // Delete Note
@@ -117,10 +130,11 @@ const NoteState = (props) => {
         notes: state.notes,
         current: state.current,
         filtered: state.filtered,
+        error: state.error,
         addNoteModalOpen: state.addNoteModalOpen,
         confirmDeleteNote: state.confirmDeleteNote,
         modifyNote: state.modifyNote,
-        error: state.error,
+        getNotes,
         addNote,
         deleteNote,
         setCurrent,

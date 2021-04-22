@@ -39,10 +39,10 @@ router.post(
       let user = await User.findOne({ email });
       // if there is already an email like what the user typed in
       if (user) {
-        // bad request with message
+        // bad request with msg
         res
           .status(400)
-          // .json({ message: `A user with the email ${email} already exist.` });
+          // .json({ msg: `A user with the email ${email} already exist.` });
           .json({ msg: "User already exists" });
       }
 
@@ -83,11 +83,11 @@ router.post(
         }
       );
     } catch (error) {
-      console.error(error.message);
+      console.error(error.msg);
       // server error
       res.status(500).send("Server Error");
     }
-    // res.json({ message: "Hello user post, resisters a user" });
+    // res.json({ msg: "Hello user post, resisters a user" });
   }
 );
 
