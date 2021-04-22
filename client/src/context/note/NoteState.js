@@ -1,5 +1,5 @@
 import React, { useReducer } from "react";
-import { v4 as uuidv4 } from "uuid";
+import axios from 'axios'
 import NoteContext from "./noteContext";
 import noteReducer from "./noteReducer";
 import {
@@ -16,48 +16,34 @@ import {
   REMOVE_DELETE_NOTE_MODAL,
   SHOW_MODIFY_NOTE_MODAL,
   REMOVE_MODIFY_NOTE_MODAL,
+  NOTE_ERROR
 } from "../types";
 
 const NoteState = (props) => {
   const initialState = {
-    notes: [
-      {
-        id: 1,
-        title: "Note 1",
-        body: "Be Legendary",
-        date: "Nov 23, 2020",
-      },
-      {
-        id: 2,
-        title: "Now",
-        body: "Everyday",
-        date: "Dec 30, 2020",
-      },
-      {
-        id: 3,
-        title: "What?",
-        body: "Be great",
-        date: "Aug 23, 1986",
-      },
-      {
-        id: 4,
-        title: "Nice",
-        body: "Good Job",
-        date: "Dec 31, 1993",
-      },
-    ],
+    notes: [],
     current: null,
     filtered: null,
     addNoteModalOpen: false,
     confirmDeleteNote: false,
     modifyNote: false,
+    error: null
   };
   const [state, dispatch] = useReducer(noteReducer, initialState);
 
   // Add Note
-  const addNote = (note) => {
-    note.id = uuidv4();
-    dispatch({ type: ADD_NOTE, payload: note });
+  const addNote = async (note) => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    try {
+      const res = await axios.post("/api/notes", note, config);
+      dispatch({ type: ADD_NOTE, payload: res.data });
+    } catch (error) {
+      dispatch({ type: NOTE_ERROR, payload: error.response.msg });
+    }
   };
   // Delete Note
   const deleteNote = (id) => {
@@ -134,6 +120,7 @@ const NoteState = (props) => {
         addNoteModalOpen: state.addNoteModalOpen,
         confirmDeleteNote: state.confirmDeleteNote,
         modifyNote: state.modifyNote,
+        error: state.error,
         addNote,
         deleteNote,
         setCurrent,

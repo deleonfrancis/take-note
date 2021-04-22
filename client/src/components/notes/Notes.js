@@ -21,12 +21,12 @@ function Notes() {
         <div className="row">
           {filtered !== null
             ? filtered.map((note) => (
-                <CSSTransition key={note.id} timeout={1500} classNames="item">
+                <CSSTransition key={note._id} timeout={1500} classNames="item">
                   <NoteItem note={note} />
                 </CSSTransition>
               ))
             : notes.map((note) => (
-                <CSSTransition key={note.id} timeout={1500} classNames="item">
+                <CSSTransition key={note._id} timeout={1500} classNames="item">
                   <NoteItem note={note} />
                 </CSSTransition>
               ))}

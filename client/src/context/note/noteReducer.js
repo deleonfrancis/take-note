@@ -12,6 +12,7 @@ import {
   REMOVE_DELETE_NOTE_MODAL,
   SHOW_MODIFY_NOTE_MODAL,
   REMOVE_MODIFY_NOTE_MODAL,
+  NOTE_ERROR
 } from "../types";
 
 // eslint-disable-next-line
@@ -86,6 +87,11 @@ export default (state, action) => {
       return {
         ...state,
         modifyNote: false,
+      };
+      case NOTE_ERROR:
+      return {
+        ...state,
+        error: action.payload,
       };
     default:
       return state;
