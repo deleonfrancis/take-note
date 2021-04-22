@@ -17,8 +17,6 @@ router.get("/", auth, async (req, res) => {
     console.error(error.message);
     res.status(500).send("Server Error.");
   }
-
-  // res.json({msg: "Hello get all notes"})
 });
 
 // adds a new note
@@ -53,7 +51,7 @@ router.put("/:id", auth, async (req, res) => {
     let note = await Note.findById(req.params.id);
     if (!note) return res.status(404).json({ msg: "Note not found." });
 
-    // make sure user owns the contact
+    // make sure user owns the note
     if (note.user.toString() !== req.user.id)
       return res.status(401).json({ msg: "Not Authorized." });
 
@@ -77,7 +75,7 @@ router.delete("/:id", auth, async (req, res) => {
     let note = await Note.findById(req.params.id);
     if (!note) return res.status(404).json({ msg: "Note not found." });
 
-    // make sure user owns the contact
+    // make sure user owns the note
     if (note.user.toString() !== req.user.id)
       return res.status(401).json({ msg: "Not Authorized." });
 

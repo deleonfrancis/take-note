@@ -22,7 +22,7 @@ export default (state, action) => {
     case GET_NOTES:
       return {
         ...state,
-        contacts: action.payload,
+        notes: action.payload,
         loading: false,
       };
     case ADD_NOTE:

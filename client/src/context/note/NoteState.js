@@ -35,7 +35,6 @@ const NoteState = (props) => {
 
   // Get Notes
   const getNotes = async () => {
-
     try {
       const res = await axios.get("/api/notes");
       dispatch({ type: GET_NOTES, payload: res.data });
@@ -54,8 +53,8 @@ const NoteState = (props) => {
     try {
       const res = await axios.post("/api/notes", note, config);
       dispatch({ type: ADD_NOTE, payload: res.data });
-    } catch (err) {
-      dispatch({ type: NOTE_ERROR, payload: err });
+    } catch (error) {
+      dispatch({ type: NOTE_ERROR, payload: error.response.msg });
     }
   };
   // Delete Note

@@ -1,8 +1,9 @@
-import React, { Fragment, useContext, useEffect } from "react";
+import React, { Fragment, useContext, useEffect,  } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
-import NoteContext from "../../context/note/noteContext";
 import NoteItem from "./NoteItem";
+import NoteContext from "../../context/note/noteContext";
 import RingLoader from "react-spinners/RingLoader";
+import { css } from "@emotion/core";
 
 function Notes() {
   const noteContext = useContext(NoteContext);
@@ -21,6 +22,14 @@ function Notes() {
       </div>
     );
   }
+// Spinner
+const color = "#ffffff";
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
+
   return (
     <Fragment>
       {notes !== null && !loading ? (
@@ -48,7 +57,7 @@ function Notes() {
           </div>
         </TransitionGroup>
       ) : (
-        <RingLoader />
+        <RingLoader color={color} loading={loading} css={override} size={150} />
       )}
     </Fragment>
   );

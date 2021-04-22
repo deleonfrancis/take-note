@@ -16,6 +16,8 @@ function Jumbotron() {
   
   const { openModal, notes } = noteContext;
 
+  // const notesGreaterThanOne = notes.length>1
+
   const authWelcome =(
     <>
       <h1 className="display-4">Hello {user && user.firstName},</h1>
@@ -47,7 +49,8 @@ function Jumbotron() {
           </button>
         </p>
       </div>
-      <FilterNotes />
+       <FilterNotes />
+      {/* {notesGreaterThanOne && <FilterNotes />} */}
       <button onClick={onLogout} className="btn mt-3">
         <i className="fas fa-sign-out-alt">Logout</i>
       </button>
