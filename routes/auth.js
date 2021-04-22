@@ -43,13 +43,13 @@ router.post(
 
       if (!user) {
         // bad request with message
-        return res.status(400).json({ message: "Invalid Credentials" });
+       res.status(400).json({ msg: "Invalid Credentials" });
       }
 
       const isMatch = await bcrypt.compare(password, user.password);
       if (!isMatch) {
         // bad request with message
-        return res.status(400).json({ message: "Invalid Password" });
+         res.status(400).json({ msg: "Invalid Password" });
       }
       // get jwt token
       const payload = {
