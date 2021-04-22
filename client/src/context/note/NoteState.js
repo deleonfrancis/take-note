@@ -58,9 +58,21 @@ const NoteState = (props) => {
     }
   };
   // Delete Note
-  const deleteNote = (id) => {
-    dispatch({ type: DELETE_NOTE, payload: id });
+  const deleteNote = async (id) => {
+    try {
+      await axios.delete(`/api/notes/${id}`, );
+      dispatch({ type: DELETE_NOTE, payload: id });
+    } catch (error) {
+      dispatch({ type: NOTE_ERROR, payload: error.response.msg });
+    }
+    
   };
+  
+  // Clear Notes
+  const clearNotes = () => {
+    dispatch({ type: CLEAR_NOTES });
+  };
+ 
 
   // Set Current Note
   const setCurrent = (note) => {
@@ -150,6 +162,7 @@ const NoteState = (props) => {
         openModifyModal,
         closeModifyModal,
         afterModifyOpenModal,
+        clearNotes
       }}
     >
       {props.children}

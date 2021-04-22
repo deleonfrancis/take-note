@@ -13,7 +13,8 @@ import {
   SHOW_MODIFY_NOTE_MODAL,
   REMOVE_MODIFY_NOTE_MODAL,
   NOTE_ERROR,
-  GET_NOTES
+  GET_NOTES,
+  CLEAR_NOTES
 } from "../types";
 
 // eslint-disable-next-line
@@ -28,7 +29,7 @@ export default (state, action) => {
     case ADD_NOTE:
       return {
         ...state,
-        notes: [...state.notes, action.payload],
+        notes: [action.payload, ...state.notes],
         loading: false,
 
       };
@@ -47,6 +48,14 @@ export default (state, action) => {
         loading: false,
 
       };
+      case CLEAR_NOTES:
+        return {
+          ...state,
+          notes: null,
+          filtered:null,
+          error:null,
+          current:null
+        };
     case SET_CURRENT:
       return {
         ...state,

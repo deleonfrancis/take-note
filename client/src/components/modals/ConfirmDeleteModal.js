@@ -27,11 +27,11 @@ function ConfirmDeleteModal({ note, setShowConfirmModal }) {
     afterDeleteOpenModal,
   } = noteContext;
 
-  const { id, title } = note;
+  const { _id, title } = note;
 
   const handleDelete = (e) => {
     e.preventDefault();
-    deleteNote(id);
+    deleteNote(_id);
     setShowConfirmModal(false);
     closeDeleteModal();
   };
