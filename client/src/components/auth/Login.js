@@ -52,7 +52,9 @@ function Login(props) {
 
   return (
     <div className="">
-      <h1 className="mt-5 mb-3 greeting">
+      <h1 style={{
+        fontSize:"30px"
+      }} className="mt-5 mb-3 greeting">
         {morning && "Good morning"}
         {afterNoon && "Good afternoon"}
         {evening && "Good evening"}

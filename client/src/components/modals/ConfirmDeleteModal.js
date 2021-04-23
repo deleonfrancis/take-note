@@ -10,8 +10,10 @@ const customStylesDelete = {
     bottom: "auto",
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
-    height: "50%",
+    height: "auto",
     width: "50%",
+    border: "none",
+    backgroundColor: "white",
   },
 };
 
@@ -52,23 +54,26 @@ function ConfirmDeleteModal({ note, setShowConfirmModal }) {
         style={customStylesDelete}
         contentLabel="Delete Note Modal"
       >
-        <div className="mb-3">
-          <h6 className="d-flex justify-content-center">
-            Are you sure you want to delete "{title}"?
-          </h6>
+        <div className="mb-4 mt-3">
+          <h5 className="d-flex justify-content-center takeNoteDetail">
+            Delete <span className="deleteTitle ml-2">{title}</span> ?
+          </h5>
         </div>
 
         <div className="row d-flex justify-content-center mb-5">
           <div style={{ width: "60%" }} className="">
             <button
               onClick={handleDelete}
-              className="btn btn-danger btn-block mb-2"
+              className="shadow btn btn-danger btn-block mb-4"
             >
               Delete
             </button>
           </div>
           <div style={{ width: "60%" }} className="">
-            <button onClick={handleCancel} className="btn btn-light btn-block">
+            <button
+              onClick={handleCancel}
+              className="shadow btn btn-light btn-block"
+            >
               Cancel
             </button>
           </div>

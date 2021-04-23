@@ -20,12 +20,13 @@ function NoteItem({ note }) {
   }
 
   // const displayNote = `${note.body.slice(0, 20)}...`
-
+// const dateFormat = note.date.toUTCString()
+console.log(note.date);
 
   return (
-    <div id={`#${note.id}`} className="card m-2 cardBg" style={{ width: "20rem" }}>
+    <div id={`#${note.id}`} className="card m-2 cardBg shadow" style={{ width: "20rem" }}>
       <div className="card-body">
-        <h5 className="card-title">{(note.title.length >=10) ? `${note.title.slice(0, 10)}...` : note.title}</h5>
+        <h5 className="card-title noteTitle">{(note.title.length >=15) ? `${note.title.slice(0, 10)}...` : note.title}</h5>
         <hr style={{width:"70%"}}/>
         <p className="card-text text-muted mb-0">{(note.body.length >= 20) ? `${note.body.slice(0, 20)}...` : note.body}</p>
         <div className="d-flex justify-content-between my-3">
@@ -37,7 +38,7 @@ function NoteItem({ note }) {
             <i className="far fa-trash-alt text-danger"> <span><br/>Delete</span></i>
           </button>
         </div>
-        <p className="text-muted mb-0">{note.date}</p>
+        <p className="text-muted mb-0">{note.formattedDate}</p>
       </div>
       {showConfirmModal && <ConfirmDeleteModal note={note} setShowConfirmModal={setShowConfirmModal} />}
       {showModifyModal && <ModifyNoteModal note={note} setShowModifyModal={setShowModifyModal} />}

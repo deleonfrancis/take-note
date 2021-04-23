@@ -10,8 +10,11 @@ const customStylesModify = {
     bottom: "auto",
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
-    height: "90%",
+    height: "auto",
     width: "90%",
+    border: "none",
+    backgroundColor: "#f3f4ed",
+    padding:"50px"
   },
 };
 
@@ -72,7 +75,38 @@ function ModifyNoteModal({ note, setShowModifyModal }) {
     >
       <form>
         <div className="form-group">
-          <label htmlFor="exampleFormControlInput1">Title:</label>
+        {/* Note Title */}
+          <div
+            style={{ width: "70%", margin: "auto" }}
+            className="input-group mb-3"
+          >
+            <div className="input-group-prepend">
+              <span
+                style={{ border: "none", background: "none" }}
+                className="input-group-text"
+                id="basic-addon1"
+              >
+                <i className="fas fa-envelope-open-text fa-lg"></i>
+              </span>
+            </div>
+            <label className="sr-only" htmlFor="modNoteTitle">
+              Title
+            </label>
+            <input
+              className="form-control noteTitleInput"
+              type="text"
+              name="title"
+              id="modNoteTitle"
+              placeholder="Title"
+              onChange={onChange}
+              onBlur={handleUpdate}
+              value={noteContent.title}
+              // ref={inputEl}
+            />
+          </div>
+
+          {/* old modify title */}
+          {/* <label htmlFor="exampleFormControlInput1">Title:</label>
           <input
             type="text"
             name="title"
@@ -82,10 +116,10 @@ function ModifyNoteModal({ note, setShowModifyModal }) {
             onChange={onChange}
             onBlur={handleUpdate}
             value={noteContent.title}
-          />
+          /> */}
         </div>
         <div className="form-group mb-5">
-          <label htmlFor="exampleFormControlTextarea1">Note:</label>
+          <label className="sr-only" htmlFor="exampleFormControlTextarea1">Note:</label>
           <textarea
             className="form-control"
             placeholder="Note"
@@ -104,7 +138,7 @@ function ModifyNoteModal({ note, setShowModifyModal }) {
           <div className="col-sm-12">
             <button
               onClick={handleSave}
-              className="btn btn-success btn-block bg-primary mb-3"
+              className="btn btn-success shadow btn-block mb-3"
             >
               Done
             </button>
