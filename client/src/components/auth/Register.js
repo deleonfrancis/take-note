@@ -262,7 +262,7 @@ function Register(props) {
           />
         </div> */}
         <div className="mb-3">
-          <Link className="loginRegisterLink" to="/login">
+          <Link className="loginOptionsLink" to="/login">
             Back to login
           </Link>
         </div>

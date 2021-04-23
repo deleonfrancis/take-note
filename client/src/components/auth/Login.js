@@ -52,9 +52,12 @@ function Login(props) {
 
   return (
     <div className="">
-      <h1 style={{
-        fontSize:"30px"
-      }} className="mt-5 mb-3 greeting">
+      <h1
+        style={{
+          fontSize: "30px",
+        }}
+        className="mt-5 mb-3 greeting"
+      >
         {morning && "Good morning"}
         {afterNoon && "Good afternoon"}
         {evening && "Good evening"}
@@ -140,8 +143,20 @@ function Login(props) {
             />
           </div>
           {/* Link to Sign Up  */}
-          <div className="mb-3">
-            <Link className="loginRegisterLink" to="/register">Not a user? Sign up</Link>
+          <div className="mb-3 row d-flex justify-content-center">
+            <div className="col-sm-12 col-md-3">
+              <Link className="loginOptionsLink" to="/register">
+                Not a user? Sign up
+              </Link>
+            </div>
+            <div className="col-sm-12 col-md-3">
+              <p className="m-0">or</p>
+            </div>
+            <div className="col-sm-12 col-md-3">
+              <Link className="loginOptionsLink" to="/guest">
+                Use as guest
+              </Link>
+            </div>
           </div>
           {/* Login Button */}
           <input

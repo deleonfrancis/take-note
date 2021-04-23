@@ -106,11 +106,11 @@
   font-size: 30px;
 }
 
-.loginRegisterLink {
+.loginOptionsLink {
   color: rgb(61, 43, 43);
   text-decoration: underline;
 }
-.loginRegisterLink:hover {
+.loginOptionsLink:hover {
   color: #0ab973;
 }
 /* =============Jumbotron============= */
