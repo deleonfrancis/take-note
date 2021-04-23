@@ -66,7 +66,7 @@ function Login(props) {
           className="col-lg-8 col-md-10 col-sm-12 p-3 bg-light"
           onSubmit={onSubmit}
         >
-          <h3 className="mb-3">SIGN IN </h3>
+          <h3 className="mb-3 signInText">Sign In </h3>
           {/* Sign in with google*/}
           {/* <button
             id="loginGoogle"
@@ -139,7 +139,7 @@ function Login(props) {
           </div>
           {/* Link to Sign Up  */}
           <div className="mb-3">
-            <Link to="/register">Not a user? Signup</Link>
+            <Link className="registerLink" to="/register">Not a user? Sign up</Link>
           </div>
           {/* Login Button */}
           <input

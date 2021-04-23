@@ -79,6 +79,20 @@
   transform: translateY(-7px);
 }
 
+.signInText{
+  color: #0593a0;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.registerLink{
+  color: rgb(61, 43, 43);
+  text-decoration: underline;
+}
+.registerLink:hover{
+  color: #0ab973;
+}
+
 
 /* =============App.js============= */
 .App {
