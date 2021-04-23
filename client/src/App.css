@@ -1,4 +1,25 @@
 /* ===================Login and Register============== */
+.greeting {
+  color: #723a30;
+  font-family: "Amita", cursive;
+}
+
+.takeNote {
+  font-family: 'Homemade Apple', cursive;
+  font-size: 30px;
+  color: #306872;
+}
+
+.takeNoteDetail{
+  font-family: 'Tangerine', cursive;
+  font-size: 35px;
+}
+
+.welcome{
+  font-family: 'Tangerine', cursive;
+  font-size: 60px;
+}
+
 .customInput {
   background-color: rgba(0, 0, 0, 0);
   color: rgb(54, 53, 53);
@@ -17,10 +38,9 @@
   background-color: #f8f9fa;
 }
 
-
 /* Change Autocomplete styles in Chrome*/
 .customInput:-webkit-autofill,
-.customInput:-webkit-autofill:hover, 
+.customInput:-webkit-autofill:hover,
 .customInput:-webkit-autofill:focus {
   /* border: 1px solid green; */
   -webkit-text-fill-color: rgb(54, 53, 53);
@@ -79,20 +99,19 @@
   transform: translateY(-7px);
 }
 
-.signInText{
+.signInText {
   color: #0593a0;
   font-weight: bold;
   font-size: 30px;
 }
 
-.loginRegisterLink{
+.loginRegisterLink {
   color: rgb(61, 43, 43);
   text-decoration: underline;
 }
-.loginRegisterLink:hover{
+.loginRegisterLink:hover {
   color: #0ab973;
 }
-
 
 /* =============App.js============= */
 .App {
@@ -135,11 +154,12 @@
 }
 
 /* ================================= */
-body, html{
-  width:100%;
+body,
+html {
+  width: 100%;
   margin: 0%;
   padding: 0%;
-  background-color: #536162;
+  background-color: #a7c4c4;
 }
 
 .cardBg {
@@ -196,6 +216,5 @@ body, html{
   opacity: 0;
   transition: opacity 1000ms ease-in;
 }
-
 
 /* ================================================ */

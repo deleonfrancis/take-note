@@ -52,18 +52,18 @@ function Login(props) {
 
   return (
     <div className="">
-      <h1 className="mt-5 mb-3">
+      <h1 className="mt-5 mb-3 greeting">
         {morning && "Good morning"}
         {afterNoon && "Good afternoon"}
         {evening && "Good evening"}
       </h1>
-      <h2 className="mb-3">
-        welcome to <span>takeNote</span>
+      <h2 className="mb-3 welcome">
+        welcome to <span className="takeNote">takeNote</span>
       </h2>
-      <p className="mb-5">a secure place to keep your notes.</p>
+      <p className="mb-5 takeNoteDetail">a secure place to keep your notes.</p>
       <div className="row d-flex justify-content-center">
         <form
-          className="col-lg-8 col-md-10 col-sm-12 p-3 bg-light"
+          className="col-lg-8 col-md-10 col-sm-12 p-3 bg-light py-4"
           onSubmit={onSubmit}
         >
           <h3 className="mb-3 signInText">Login </h3>

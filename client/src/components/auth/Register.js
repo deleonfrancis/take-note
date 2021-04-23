@@ -56,7 +56,7 @@ function Register(props) {
   return (
     <div className="row d-flex justify-content-center mt-5">
       <form
-        className="col-lg-8 col-md-10 col-sm-12 p-3 bg-light"
+        className="col-lg-8 col-md-10 col-sm-12 p-3 bg-light py-4"
         onSubmit={onSubmit}
       >
         <h3 className="mb-3 signInText">Sign Up </h3>
