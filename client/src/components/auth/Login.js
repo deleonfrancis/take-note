@@ -41,17 +41,121 @@ function Login(props) {
     }
   };
 
+  // get current time
+  let date = new Date();
+  let hour = date.getHours();
+  // console.log(hour);
+
+  const morning = hour >= 5 && hour < 12;
+  const afterNoon = hour >= 12 && hour < 18;
+  const evening = hour >= 18 && hour < 5;
+
   return (
-    <div className="form-container">
-      <h1>
-        Account <span className="text-primary">Login</span>
+    <div className="">
+      <h1 className="mt-5 mb-3">
+        {morning && "Good morning"}
+        {afterNoon && "Good afternoon"}
+        {evening && "Good evening"}
       </h1>
-      <form onSubmit={onSubmit}>
-        <div className="form-group">
+      <h2 className="mb-3">
+        welcome to <span>takeNote</span>
+      </h2>
+      <p className="mb-5">a secure place to keep your notes.</p>
+      <div className="row d-flex justify-content-center">
+        <form
+          className="col-lg-8 col-md-10 col-sm-12 p-3 bg-light"
+          onSubmit={onSubmit}
+        >
+          <h3 className="mb-3">SIGN IN </h3>
+          {/* Sign in with google*/}
+          {/* <button
+            id="loginGoogle"
+            style={{ width: "30%", margin: "auto" }}
+            value="Google"
+            className="btn btn-block googleBtn mb-3"
+          >
+            <i className="fab fa-google fa-lg"></i>
+          </button> 
+
+          <p className="mb-3">or user your account</p>*/}
+
+          {/* Login Email */}
+          <div
+            style={{ width: "70%", margin: "auto" }}
+            className="input-group mb-3"
+          >
+            <div className="input-group-prepend">
+              <span
+                style={{ border: "none", background: "none" }}
+                className="input-group-text"
+                id="basic-addon1"
+              >
+                <i className="fas fa-envelope fa-lg"></i>
+              </span>
+            </div>
+            <label className="sr-only" htmlFor="emailLogin">
+              Username
+            </label>
+            <input
+              id="emailLogin"
+              className="form-control customInput"
+              type="email"
+              name="email"
+              placeholder="Your email"
+              value={email}
+              onChange={onChange}
+              autoComplete="email"
+              required
+            />
+          </div>
+          {/* Login Password */}
+          <div
+            style={{ width: "70%", margin: "auto" }}
+            className="input-group mb-4"
+          >
+            <div className="input-group-prepend">
+              <span
+                style={{ border: "none", background: "none" }}
+                className="input-group-text"
+                id="basic-addon1"
+              >
+                <i className="fas fa-lock fa-lg"></i>
+              </span>
+            </div>
+            <label className="sr-only" htmlFor="passwordLogin">
+              Username
+            </label>
+            <input
+              id="passwordLogin"
+              className="form-control customInput"
+              type="password"
+              name="password"
+              placeholder="Your password"
+              value={password}
+              onChange={onChange}
+              autoComplete="current-password"
+              required
+            />
+          </div>
+          {/* Link to Sign Up  */}
+          <div className="mb-3">
+            <Link to="/register">Not a user? Signup</Link>
+          </div>
+          {/* Login Button */}
+          <input
+            style={{ width: "50%", margin: "auto" }}
+            type="submit"
+            value="LOGIN"
+            className="btn btn-block loginBtn"
+          />
+
+          {/* <div className="form-group">
           <label htmlFor="email">Email</label>
           <input
+          className="customInput"
             type="email"
             name="email"
+            placeholder="Your Email"
             value={email}
             onChange={onChange}
             autoComplete="email"
@@ -75,8 +179,9 @@ function Login(props) {
           className="btn btn-primary btn-block"
         />
         <Link to="/register">Register</Link>
-        <div></div>
-      </form>
+        <div></div> */}
+        </form>
+      </div>
     </div>
   );
 }

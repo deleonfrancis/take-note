@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import AuthState from "./context/auth/AuthState";
+import AuthState from "./context/auth/authState";
 import AlertState from "./context/alert/AlertState";
 import NoteState from "./context/note/NoteState";
 import Home from "./components/pages/Home";

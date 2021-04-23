@@ -1,3 +1,85 @@
+/* ===================Login and Register============== */
+.customInput {
+  background-color: rgba(0, 0, 0, 0);
+  color: rgb(54, 53, 53);
+  /* border: none; */
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  outline: none;
+  height: 30px;
+  transition: height 1s;
+  -webkit-transition: height 1s;
+}
+.customInput:focus {
+  height: 50px;
+  font-size: 16px;
+  background-color: #f8f9fa;
+}
+
+
+/* Change Autocomplete styles in Chrome*/
+.customInput:-webkit-autofill,
+.customInput:-webkit-autofill:hover, 
+.customInput:-webkit-autofill:focus {
+  /* border: 1px solid green; */
+  -webkit-text-fill-color: rgb(54, 53, 53);
+  box-shadow: 0 0 0px 1000px #f8f9fa inset;
+  -webkit-box-shadow: 0 0 0px 1000px #f8f9fa inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.loginBtn {
+  width: 140px;
+  height: 45px;
+  font-family: "Roboto", sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #1ea6b3;
+  border: none;
+  border-radius: 0%;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.loginBtn:hover {
+  background-color: #0ab973;
+  box-shadow: 0px 8px 15px 5px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+.googleBtn {
+  width: 140px;
+  height: 45px;
+  font-family: "Roboto", sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #1ea6b3;
+  border: none;
+  border-radius: 0%;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.googleBtn:hover {
+  background-color: #0ab973;
+  box-shadow: 0px 8px 15px 5px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+
 /* =============App.js============= */
 .App {
   text-align: center;
@@ -39,46 +121,49 @@
 }
 
 /* ================================= */
-body{
+body, html{
+  width:100%;
+  margin: 0%;
+  padding: 0%;
   background-color: #536162;
 }
 
-.cardBg{
+.cardBg {
   background-color: #f3f4ed;
 }
 /* ================================= */
 
-.escapeModalBtn{
-border: none;
-background: none;
-color: rgb(63, 62, 62);
+.escapeModalBtn {
+  border: none;
+  background: none;
+  color: rgb(63, 62, 62);
 }
 
 #filterNote {
-  background-color:rgba(0, 0, 0, 0);
-  color:black;
+  background-color: rgba(0, 0, 0, 0);
+  color: black;
   /* border: none; */
   border-top: none;
   border-right: none;
   border-left: none;
 
-  outline:none;
-  height:30px;
-  transition:height 1s;
-  -webkit-transition:height 1s;
+  outline: none;
+  height: 30px;
+  transition: height 1s;
+  -webkit-transition: height 1s;
 }
 #filterNoter:focus {
-  height:50px;
-  font-size:16px;
+  height: 50px;
+  font-size: 16px;
 }
 
-.jumbotron{
+.jumbotron {
   border-radius: 0%;
   /* border-image: url(./images/notepad_pic.jpg); */
 }
 
 /* ================================= */
-.container{
+.container {
   width: 90%;
 }
 
@@ -97,3 +182,6 @@ color: rgb(63, 62, 62);
   opacity: 0;
   transition: opacity 1000ms ease-in;
 }
+
+
+/* ================================================ */

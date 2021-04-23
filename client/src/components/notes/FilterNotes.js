@@ -10,7 +10,7 @@ function FilterNotes() {
       text.current.value = "";
     }
   });
-  const {notes, loading, filterNotes, clearFilter, filtered } = noteContext;
+  const {filterNotes, clearFilter, filtered } = noteContext;
 
   const handleChange = (e) => {
     if (text.current.value !== "") {
