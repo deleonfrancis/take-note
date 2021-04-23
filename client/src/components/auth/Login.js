@@ -46,9 +46,9 @@ function Login(props) {
   let hour = date.getHours();
   // console.log(hour);
 
-  const morning = hour >= 5 && hour < 12;
+  const morning = hour < 12;
   const afterNoon = hour >= 12 && hour < 18;
-  const evening = hour >= 18 && hour < 5;
+  const evening = hour >= 18;
 
   return (
     <div className="">
