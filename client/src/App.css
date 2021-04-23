@@ -5,18 +5,18 @@
 }
 
 .takeNote {
-  font-family: 'Homemade Apple', cursive;
+  font-family: "Homemade Apple", cursive;
   font-size: 30px;
   color: #306872;
 }
 
-.takeNoteDetail{
-  font-family: 'Tangerine', cursive;
+.takeNoteDetail {
+  font-family: "Tangerine", cursive;
   font-size: 35px;
 }
 
-.welcome{
-  font-family: 'Tangerine', cursive;
+.welcome {
+  font-family: "Tangerine", cursive;
   font-size: 60px;
 }
 
@@ -111,6 +111,15 @@
 }
 .loginRegisterLink:hover {
   color: #0ab973;
+}
+/* =============Jumbotron============= */
+.logoutBtn {
+  border-radius: 0%;
+}
+
+.logoutBtn:hover {
+  background-color: #1ea6b3;
+  color: white;
 }
 
 /* =============App.js============= */

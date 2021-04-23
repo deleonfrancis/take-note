@@ -36,7 +36,7 @@ function FilterNotes() {
         ref={text}
         id="filterNote"
         type="text"
-        className="form-control"
+        className="form-control custom"
         placeholder="Search"
         aria-label="Username"
         aria-describedby="basic-addon1"
