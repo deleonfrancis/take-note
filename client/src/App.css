@@ -146,6 +146,17 @@
   color: white;
 }
 
+.backToLoginBtn {
+  border-radius: 0%;
+  color: black;
+}
+
+.backToLoginBtn:hover {
+  background-color: #1ea6b3;
+  color: white;
+  text-decoration: none;
+}
+
 /* =============Note Item============= */
 .cardBg {
   background-color: #f3f4ed;

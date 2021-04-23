@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
+import GuestJumbotron from "./GuestJumbotron";
 
 function GuestHome() {
-    return (
-        <div>
-            <h1>Welcome to the guest page</h1>
-        </div>
-    )
+  return (
+    <div>
+      <GuestJumbotron />
+    </div>
+  );
 }
 
-export default GuestHome
+export default GuestHome;
