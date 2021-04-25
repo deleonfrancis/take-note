@@ -24,7 +24,7 @@ function GuestJumbotron() {
         </div>
        <FilterNotes />
           <Link className="backToLoginBtn btn" to="/login">
-            <i className="fas fa-sign-out-alt"> Back to Login</i>
+            <i className="fas fa-caret-left"> Back to Login</i>
           </Link>
       </div>
     </div>

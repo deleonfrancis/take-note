@@ -56,10 +56,11 @@ function Register(props) {
   return (
     <div className="row d-flex justify-content-center mt-5">
       <form
-        className="col-lg-8 col-md-10 col-sm-12 p-3 bg-light py-4"
+        className="col-lg-4 col-md-6 col-sm-12 p-1 bg-light py-4"
         onSubmit={onSubmit}
       >
         <h3 className="mb-3 signInText">Sign Up </h3>
+
         {/* First Name Input */}
         <div
           style={{ width: "70%", margin: "auto" }}
@@ -88,6 +89,7 @@ function Register(props) {
             required
           />
         </div>
+
         {/* Last Name Input */}
         <div
           style={{ width: "70%", margin: "auto" }}
@@ -116,25 +118,7 @@ function Register(props) {
             required
           />
         </div>
-        {/* First and last name input old */}
-        {/* <div className="form-group">
-          <label htmlFor="firtName">First Name</label>
-          <input
-            type="text"
-            name="firstName"
-            value={firstName}
-            onChange={onChange}
-            required
-          />
-          <label htmlFor="lastName">Last Name</label>
-          <input
-            type="text"
-            name="lastName"
-            value={lastName}
-            onChange={onChange}
-            required
-          />
-        </div> */}
+        
         {/* Register Email */}
         <div
           style={{ width: "70%", margin: "auto" }}
@@ -164,17 +148,6 @@ function Register(props) {
             required
           />
         </div>
-        {/* Email old */}
-        {/* <div className="form-group">
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={onChange}
-            required
-          />
-        </div> */}
 
         {/* Register Password */}
         <div
@@ -191,7 +164,7 @@ function Register(props) {
             </span>
           </div>
           <label className="sr-only" htmlFor="passwordRegister">
-            Username
+            Password
           </label>
           <input
             id="passwordRegister"
@@ -205,18 +178,6 @@ function Register(props) {
             minLength="6"
           />
         </div>
-        {/* Password old */}
-        {/* <div className="form-group">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={onChange}
-            required
-            minLength="6"
-          />
-        </div> */}
 
         {/* Confirm Password */}
         <div
@@ -233,7 +194,7 @@ function Register(props) {
             </span>
           </div>
           <label className="sr-only" htmlFor="passwordConfirm">
-            Username
+            Confirm Password
           </label>
           <input
             id="passwordConfirm"
@@ -247,38 +208,21 @@ function Register(props) {
             minLength="6"
           />
         </div>
-        {/* Password 2 old */}
-        {/* <div className="form-group">
-          <label className="sr-only" htmlFor="password2">Confirm Password</label>
-          <input
-          className="form-control customInput"
-            type="password"
-            name="password2"
-            placeholder="Confirm password"
-            value={password2}
-            onChange={onChange}
-            required
-            minLength="6"
-          />
-        </div> */}
-        <div className="mb-3">
-          <Link className="loginOptionsLink" to="/login">
-            Back to login
-          </Link>
-        </div>
+       {/* Register Button */}
         <input
           style={{ width: "50%", margin: "auto" }}
           type="submit"
           value="Register"
-          className="btn btn-block loginRegisterBtn"
+          className="btn btn-block loginRegisterBtn mb-3"
         />
+        {/* Link to login */}
+        <div className="">
+          <Link className="loginOptionsLink" to="/login">
+            Back to login
+          </Link>
+        </div>
+        
       </form>
-      {/* <h1>
-        Account <span className="text-primary">Register</span>
-      </h1>
-      <div>
-
-      </div> */}
     </div>
   );
 }
