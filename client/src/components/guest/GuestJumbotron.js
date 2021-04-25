@@ -1,8 +1,18 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import FilterNotes from "../notes/FilterNotes";
+import GuestAddNoteModal from "./GuestAddNoteModal";
+
 
 function GuestJumbotron() {
+  const [addNoteOpen, setAddNoteOpen] = useState(false);
+
+  const handleGuestShowAdd = (e)=>{
+    e.preventDefault()
+    setAddNoteOpen(true)
+    console.log("Guest Show add Modal");
+  }
+
   return (
     <div>
       <div className="jumbotron pb-3">
@@ -17,7 +27,7 @@ function GuestJumbotron() {
         <hr className="my-4" />
         <div style={{ width: "50%", margin: "auto" }} className="my-5">
           <p className="lead">
-            <button className="btn btn-success btn-block shadow">
+            <button onClick={handleGuestShowAdd} className="btn btn-success btn-block shadow">
               Compose A Note
             </button>
           </p>
@@ -27,6 +37,7 @@ function GuestJumbotron() {
             <i className="fas fa-caret-left"> Back to Login</i>
           </Link>
       </div>
+     {addNoteOpen && <GuestAddNoteModal addNoteOpen={addNoteOpen} setAddNoteOpen={setAddNoteOpen} />}
     </div>
   );
 }

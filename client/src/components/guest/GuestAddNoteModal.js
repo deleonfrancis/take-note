@@ -2,8 +2,7 @@ import React, { useContext, useState} from "react";
 import Modal from "react-modal";
 import NoteContext from "../../context/note/noteContext";
 
-
-const customStyles = {
+const guestCustomStyles = {
   content: {
     top: "50%",
     left: "50%",
@@ -21,13 +20,13 @@ const customStyles = {
 
 Modal.setAppElement("#root");
 
-function AddNoteModal() {
+function GuestAddNoteModal({addNoteOpen, setAddNoteOpen}) {
   const noteContext = useContext(NoteContext);
 
   const {
     afterOpenModal,
     closeModal,
-    addNoteModalOpen,
+    // addNoteModalOpen,
     // setAddNoteModalOpen,
     addNote,
   } = noteContext;
@@ -56,16 +55,18 @@ function AddNoteModal() {
       title: "",
       body: "",
     });
-    closeModal();
+    setAddNoteOpen(false);
   };
+
+  
 
   return (
     <Modal
-      isOpen={addNoteModalOpen}
+      isOpen={true}
       onAfterOpen={afterOpenModal}
       onRequestClose={closeModal}
-      style={customStyles}
-      contentLabel="Add Note Modal"
+      style={guestCustomStyles}
+      contentLabel="Guest Add Note Modal"
     >
       <div className="d-flex justify-content-between mb-3">
         <h2 className="greeting">Add A Note</h2>
@@ -145,4 +146,4 @@ function AddNoteModal() {
   );
 }
 
-export default AddNoteModal;
+export default GuestAddNoteModal;
