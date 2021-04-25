@@ -11,9 +11,9 @@ function GuestNoteItem({ note }) {
 
 
     // const { openDeleteModal } = noteContext;
-    const { deleteGuestNotes, guestSetCurrent } = guestNoteContext;
+    const { guestSetCurrent } = guestNoteContext;
 
-    const { id, title } = note;
+    // const { id, title } = note;
 
     const [showGuestConfirmModal, setShowGuestConfirmModal] = useState(false)
     const showConfirmDeleteModal = () =>{

@@ -30,7 +30,7 @@ function GuestAddNoteModal({ addNoteOpen, setAddNoteOpen }) {
     closeModal,
     // addNoteModalOpen,
     // setAddNoteModalOpen,
-    addNote,
+    // addNote,
   } = noteContext;
 
   const { addGuestNote } = guestNoteContext;

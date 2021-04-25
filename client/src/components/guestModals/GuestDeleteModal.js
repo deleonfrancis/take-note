@@ -25,9 +25,9 @@ function GuestDeleteModal({ note, setShowGuestConfirmModal }) {
   const guestNoteContext = useContext(GuestNoteContext);
 
   const {
-    deleteNote,
-    closeDeleteModal,
-    confirmDeleteNote,
+    // deleteNote,
+    // closeDeleteModal,
+    // confirmDeleteNote,
     afterDeleteOpenModal,
   } = noteContext;
 

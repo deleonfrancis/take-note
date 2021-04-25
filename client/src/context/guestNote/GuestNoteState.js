@@ -3,14 +3,17 @@ import { v4 as uuidv4 } from "uuid";
 import GuestNoteContext from "./guestNoteContext";
 import guestNoteReducer from "./guestNoteReducer";
 import {
+  // eslint-disable-next-line
   GUEST_GET_NOTES,
   GUEST_ADD_NOTE,
   GUEST_DELETE_NOTE,
   GUEST_UPDATE_NOTE,
   GUEST_SET_CURRENT,
   GUEST_CLEAR_CURRENT,
+  // eslint-disable-next-line
   GUEST_CLEAR_NOTES,
   GUEST_FILTER_NOTES,
+  // eslint-disable-next-line
   GUEST_NOTE_ERROR,
   GUEST_CLEAR_FILTER,
 } from "../types";

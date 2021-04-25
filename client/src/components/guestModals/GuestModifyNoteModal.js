@@ -32,10 +32,6 @@ function GuestModifyNoteModal({ note, setShowModifyModal }) {
   const {
     afterModifyOpenModal,
     closeModifyModal,
-    // modifyNote,
-    updateNote,
-    // setAddNoteModalOpen,
-    // updateNote,
   } = noteContext;
 
   // const [originalNote, setOriginalNote] = useState({
