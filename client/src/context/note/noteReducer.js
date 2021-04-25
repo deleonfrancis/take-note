@@ -6,15 +6,15 @@ import {
   UPDATE_NOTE,
   FILTER_NOTES,
   CLEAR_FILTER,
+  NOTE_ERROR,
+  GET_NOTES,
+  CLEAR_NOTES,
   SHOW_ADD_MODAL,
   REMOVE_ADD_MODAL,
   SHOW_DELETE_NOTE_MODAL,
   REMOVE_DELETE_NOTE_MODAL,
   SHOW_MODIFY_NOTE_MODAL,
   REMOVE_MODIFY_NOTE_MODAL,
-  NOTE_ERROR,
-  GET_NOTES,
-  CLEAR_NOTES
 } from "../types";
 
 // eslint-disable-next-line
@@ -31,31 +31,29 @@ export default (state, action) => {
         ...state,
         notes: [action.payload, ...state.notes],
         loading: false,
-
       };
-      case UPDATE_NOTE:
+    case UPDATE_NOTE:
       return {
         ...state,
         notes: state.notes.map((note) =>
           note._id === action.payload._id ? action.payload : note
         ),
-        loading: false,
+        // loading: false,
       };
     case DELETE_NOTE:
       return {
         ...state,
         notes: state.notes.filter((note) => note._id !== action.payload),
         loading: false,
-
       };
-      case CLEAR_NOTES:
-        return {
-          ...state,
-          notes: null,
-          filtered:null,
-          error:null,
-          current:null
-        };
+    case CLEAR_NOTES:
+      return {
+        ...state,
+        notes: null,
+        filtered: null,
+        error: null,
+        current: null,
+      };
     case SET_CURRENT:
       return {
         ...state,
@@ -66,7 +64,7 @@ export default (state, action) => {
         ...state,
         current: null,
       };
-    
+
     case FILTER_NOTES:
       return {
         ...state,
@@ -90,27 +88,27 @@ export default (state, action) => {
         ...state,
         addNoteModalOpen: false,
       };
-      case SHOW_DELETE_NOTE_MODAL:
+    case SHOW_DELETE_NOTE_MODAL:
       return {
         ...state,
         confirmDeleteNote: true,
       };
-      case REMOVE_DELETE_NOTE_MODAL:
+    case REMOVE_DELETE_NOTE_MODAL:
       return {
         ...state,
         confirmDeleteNote: false,
       };
-      case SHOW_MODIFY_NOTE_MODAL:
+    case SHOW_MODIFY_NOTE_MODAL:
       return {
         ...state,
         modifyNote: true,
       };
-      case REMOVE_MODIFY_NOTE_MODAL:
+    case REMOVE_MODIFY_NOTE_MODAL:
       return {
         ...state,
         modifyNote: false,
       };
-      case NOTE_ERROR:
+    case NOTE_ERROR:
       return {
         ...state,
         error: action.payload,

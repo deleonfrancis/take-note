@@ -22,6 +22,13 @@ function Notes() {
       </div>
     );
   }
+  // if ((notes === null || (notes && notes.length === 0)) && !loading) {
+  //   return (
+  //     <div>
+  //       <h6>Please add a note...</h6>
+  //     </div>
+  //   );
+  // }
 // Spinner
 const color = "#ffffff";
 const override = css`

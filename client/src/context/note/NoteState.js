@@ -26,10 +26,10 @@ const NoteState = (props) => {
     notes: null,
     current: null,
     filtered: null,
+    error: null,
     addNoteModalOpen: false,
     confirmDeleteNote: false,
-    modifyNote: false,
-    error: null
+    modifyNote: false
   };
   const [state, dispatch] = useReducer(noteReducer, initialState);
 

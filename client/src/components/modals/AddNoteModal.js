@@ -89,6 +89,8 @@ function AddNoteModal() {
                 <i className="fas fa-envelope-open-text fa-lg"></i>
               </span>
             </div>
+            
+            {/* Title */}
             <label className="sr-only" htmlFor="newNoteTitle">
               Title
             </label>
@@ -103,21 +105,8 @@ function AddNoteModal() {
             // ref={inputEl}
             />
           </div>
-          {/* old title */}
-        {/* <label className="sr-only" htmlFor="newNoteTitle">
-              Title
-            </label>
-          <input
-            type="text"
-            name="title"
-            className="form-control customInput"
-            id="newNoteTitle"
-            placeholder="Title"
-            onChange={onChange}
-            value={title}
-            // ref={inputEl}
-          /> */}
         </div>
+        {/* Note Body */}
         <div className="form-group mb-5">
           <label className="sr-only" htmlFor="exampleFormControlTextarea1">Note:</label>
           <textarea
@@ -151,6 +140,7 @@ function AddNoteModal() {
           </div>
         </div>
       </form>
+      
     </Modal>
   );
 }
