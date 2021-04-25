@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
-import FilterNotes from "../notes/FilterNotes";
+import GuestFilterNotes from "../guest/GuestFilterNotes";
 import GuestAddNoteModal from "../guestModals/GuestAddNoteModal";
 
 
@@ -32,7 +32,7 @@ function GuestJumbotron() {
             </button>
           </p>
         </div>
-       <FilterNotes />
+       <GuestFilterNotes />
           <Link className="backToLoginBtn btn" to="/login">
             <i className="fas fa-caret-left"> Back to Login</i>
           </Link>
