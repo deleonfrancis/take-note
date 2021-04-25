@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import FilterNotes from "../notes/FilterNotes";
-import GuestAddNoteModal from "./GuestAddNoteModal";
+import GuestAddNoteModal from "../guestModals/GuestAddNoteModal";
 
 
 function GuestJumbotron() {
