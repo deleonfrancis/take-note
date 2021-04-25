@@ -1,25 +1,31 @@
 import React, { useContext, useState } from 'react'
-import NoteContext from "../../context/note/noteContext";
-import ConfirmDeleteModal from "../modals/ConfirmDeleteModal";
+// import NoteContext from "../../context/note/noteContext";
+import GuestNoteContext from "../../context/guestNote/guestNoteContext";
+
+import GuestDeleteModal from "../guestModals/GuestDeleteModal"
 import ModifyNoteModal from "../modals/ModifyNoteModal";
 
 function GuestNoteItem({ note }) {
-    const noteContext = useContext(NoteContext);
+    // const noteContext = useContext(NoteContext);
+    const guestNoteContext = useContext(GuestNoteContext);
 
-    const { openDeleteModal } = noteContext;
-  
-    const [showConfirmModal, setShowConfirmModal] = useState(false)
+
+    // const { openDeleteModal } = noteContext;
+    const { deleteGuestNotes } = guestNoteContext;
+
+    const { id, title } = note;
+
+    const [showGuestConfirmModal, setShowGuestConfirmModal] = useState(false)
     const showConfirmDeleteModal = (e) =>{
-      openDeleteModal(e)
-      setShowConfirmModal(true)
+      // openDeleteModal(e)
+      setShowGuestConfirmModal(true)
     }
   
     const [showModifyModal, setShowModifyModal] = useState(false)
     const showModifyNoteModal = (note) =>{
       setShowModifyModal(true)
     }
-    return (
-        
+    return ( 
     <div id={`#${note.id}`} className="card m-2 cardBg shadow" style={{ width: "20rem" }}>
     <div className="card-body">
       <h5 className="card-title noteTitle">{(note.title.length >=15) ? `${note.title.slice(0, 10)}...` : note.title}</h5>
@@ -36,7 +42,7 @@ function GuestNoteItem({ note }) {
       </div>
       <p className="text-muted mb-0">{note.formattedDate}</p>
     </div>
-    {showConfirmModal && <ConfirmDeleteModal note={note} setShowConfirmModal={setShowConfirmModal} />}
+    {showGuestConfirmModal && <GuestDeleteModal note={note} setShowGuestConfirmModal={setShowGuestConfirmModal} />}
     {showModifyModal && <ModifyNoteModal note={note} setShowModifyModal={setShowModifyModal} />}
   </div>
     )

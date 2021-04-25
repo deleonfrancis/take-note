@@ -46,8 +46,7 @@ function GuestAddNoteModal({ addNoteOpen, setAddNoteOpen }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // addNote(note);
-   addGuestNote()
+   addGuestNote(note)
     setNote({
       title: "",
       body: "",

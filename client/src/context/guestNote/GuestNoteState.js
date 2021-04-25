@@ -1,4 +1,5 @@
 import React, { useReducer } from "react";
+import { v4 as uuidv4 } from "uuid";
 import GuestNoteContext from "./guestNoteContext";
 import guestNoteReducer from "./guestNoteReducer";
 import {
@@ -16,30 +17,33 @@ import {
 
 const GuestNoteState = (props) => {
   const initialState = {
-    guestNotes: [{
-      id:"1",
-      title: "Note 1",
-      body: "This is my note 1",
-    },
-    {
-      id:"2",
-      title: "Note 2",
-      body: "This is my note 2",
-    },
-    {
-      id:"3",
-      title: "Note 3",
-      body: "This is my note 3",
-    },
-    {
-      id:"4",
-      title: "Note 4",
-      body: "This is my note 4",
-    },{
-      id:"5",
-      title: "Note 5",
-      body: "This is my note 5",
-    }],
+    guestNotes: [
+      {
+        id: "1",
+        title: "Note 1",
+        body: "This is my note 1",
+      },
+      {
+        id: "2",
+        title: "Note 2",
+        body: "This is my note 2",
+      },
+      {
+        id: "3",
+        title: "Note 3",
+        body: "This is my note 3",
+      },
+      {
+        id: "4",
+        title: "Note 4",
+        body: "This is my note 4",
+      },
+      {
+        id: "5",
+        title: "Note 5",
+        body: "This is my note 5",
+      },
+    ],
     current: null,
     filtered: null,
     error: null,
@@ -53,12 +57,15 @@ const GuestNoteState = (props) => {
   };
 
   // Add Note
-  const addGuestNote = () => {
+  const addGuestNote = (note) => {
+    note.id = uuidv4();
+    dispatch({ type: GUEST_ADD_NOTE, payload: note });
     console.log("GUEST_ADD_NOTE");
   };
 
   // Delete Note
-  const deleteGuestNotes = () => {
+  const deleteGuestNotes = (note) => {
+    dispatch({ type: GUEST_DELETE_NOTE, payload: note })
     console.log("GUEST_DELETE_NOTE");
   };
   // Update Note

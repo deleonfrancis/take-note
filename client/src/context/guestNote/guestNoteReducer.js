@@ -23,7 +23,7 @@ export default (state, action) => {
     case GUEST_ADD_NOTE:
       return {
         ...state,
-        guestNotes: [action.payload, ...state.guestNotes],
+        guestNotes: [...state.guestNotes, action.payload],
         loading: false,
       };
 
