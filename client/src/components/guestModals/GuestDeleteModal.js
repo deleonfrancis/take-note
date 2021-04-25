@@ -31,13 +31,14 @@ function GuestDeleteModal({ note, setShowGuestConfirmModal }) {
     afterDeleteOpenModal,
   } = noteContext;
 
-  const { deleteGuestNotes } = guestNoteContext;
+  const { deleteGuestNote, guestClearCurrent } = guestNoteContext;
 
   const { id, title } = note;
 
   const handleDelete = (e) => {
     e.preventDefault();
-    deleteGuestNotes(id);
+    deleteGuestNote(id);
+    guestClearCurrent()
     setShowGuestConfirmModal(false);
     // closeDeleteModal();
   };

@@ -3,7 +3,7 @@ import React, { useContext, useState } from 'react'
 import GuestNoteContext from "../../context/guestNote/guestNoteContext";
 
 import GuestDeleteModal from "../guestModals/GuestDeleteModal"
-import ModifyNoteModal from "../modals/ModifyNoteModal";
+import GuestModifyNoteModal from "../guestModals/GuestModifyNoteModal"
 
 function GuestNoteItem({ note }) {
     // const noteContext = useContext(NoteContext);
@@ -11,18 +11,18 @@ function GuestNoteItem({ note }) {
 
 
     // const { openDeleteModal } = noteContext;
-    const { deleteGuestNotes } = guestNoteContext;
+    const { deleteGuestNotes, guestSetCurrent } = guestNoteContext;
 
     const { id, title } = note;
 
     const [showGuestConfirmModal, setShowGuestConfirmModal] = useState(false)
-    const showConfirmDeleteModal = (e) =>{
-      // openDeleteModal(e)
+    const showConfirmDeleteModal = () =>{
       setShowGuestConfirmModal(true)
     }
   
     const [showModifyModal, setShowModifyModal] = useState(false)
-    const showModifyNoteModal = (note) =>{
+    const showModifyNoteModal = () =>{
+      guestSetCurrent(note)
       setShowModifyModal(true)
     }
     return ( 
@@ -43,7 +43,7 @@ function GuestNoteItem({ note }) {
       <p className="text-muted mb-0">{note.formattedDate}</p>
     </div>
     {showGuestConfirmModal && <GuestDeleteModal note={note} setShowGuestConfirmModal={setShowGuestConfirmModal} />}
-    {showModifyModal && <ModifyNoteModal note={note} setShowModifyModal={setShowModifyModal} />}
+    {showModifyModal && <GuestModifyNoteModal note={note} setShowModifyModal={setShowModifyModal} />}
   </div>
     )
 }

@@ -64,21 +64,24 @@ const GuestNoteState = (props) => {
   };
 
   // Delete Note
-  const deleteGuestNotes = (note) => {
+  const deleteGuestNote = (note) => {
     dispatch({ type: GUEST_DELETE_NOTE, payload: note })
     console.log("GUEST_DELETE_NOTE");
   };
   // Update Note
-  const updateGuestNotes = () => {
+  const updateGuestNote = (note) => {
+    dispatch({ type: GUEST_UPDATE_NOTE, payload: note })
     console.log("GUEST_UPDATE_NOTE");
   };
   // Set Current
-  const guestSetCurrent = () => {
+  const guestSetCurrent = (note) => {
+    dispatch({ type: GUEST_SET_CURRENT, payload: note })
     console.log("GUEST_SET_CURRENT");
   };
 
   // Clear Current
   const guestClearCurrent = () => {
+    dispatch({ type: GUEST_CLEAR_CURRENT })
     console.log("GUEST_CLEAR_CURRENT");
   };
 
@@ -111,8 +114,8 @@ const GuestNoteState = (props) => {
         error: state.error,
         getGuestNotes,
         addGuestNote,
-        deleteGuestNotes,
-        updateGuestNotes,
+        deleteGuestNote,
+        updateGuestNote,
         guestSetCurrent,
         guestClearCurrent,
         guestClearNotes,
