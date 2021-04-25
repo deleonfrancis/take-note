@@ -7,8 +7,10 @@ function GuestNotes() {
   const { guestNotes } = guestNoteContext;
 
   return (
-    <div>
-      {guestNotes.map((note) => <GuestNoteItem key={note.id} note={note} />)}
+    <div className="row">
+      {guestNotes.map((note) => (
+        <GuestNoteItem key={note.id} note={note} />
+      ))}
     </div>
   );
 }

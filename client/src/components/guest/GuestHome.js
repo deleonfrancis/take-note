@@ -6,7 +6,9 @@ function GuestHome() {
   return (
     <div>
       <GuestJumbotron />
+      <div className="container">
       <GuestNotes />
+      </div>
     </div>
   );
 }
