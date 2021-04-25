@@ -10,7 +10,7 @@ function GuestJumbotron() {
   const handleGuestShowAdd = (e)=>{
     e.preventDefault()
     setAddNoteOpen(true)
-    console.log("Guest Show add Modal");
+    // console.log("Guest Show add Modal");
   }
 
   return (

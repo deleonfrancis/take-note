@@ -21,31 +21,31 @@ import {
 const GuestNoteState = (props) => {
   const initialState = {
     guestNotes: [
-      {
-        id: "1",
-        title: "Note 1",
-        body: "This is my note 1",
-      },
-      {
-        id: "2",
-        title: "Note 2",
-        body: "This is my note 2",
-      },
-      {
-        id: "3",
-        title: "Note 3",
-        body: "This is my note 3",
-      },
-      {
-        id: "4",
-        title: "Note 4",
-        body: "This is my note 4",
-      },
-      {
-        id: "5",
-        title: "Note 5",
-        body: "This is my note 5",
-      },
+      // {
+      //   id: "1",
+      //   title: "Note 1",
+      //   body: "This is my note 1",
+      // },
+      // {
+      //   id: "2",
+      //   title: "Note 2",
+      //   body: "This is my note 2",
+      // },
+      // {
+      //   id: "3",
+      //   title: "Note 3",
+      //   body: "This is my note 3",
+      // },
+      // {
+      //   id: "4",
+      //   title: "Note 4",
+      //   body: "This is my note 4",
+      // },
+      // {
+      //   id: "5",
+      //   title: "Note 5",
+      //   body: "This is my note 5",
+      // },
     ],
     current: null,
     filtered: null,
@@ -56,60 +56,60 @@ const GuestNoteState = (props) => {
 
   // Get Notes
   const getGuestNotes = () => {
-    console.log("GUEST_GET_NOTES");
+    // console.log("GUEST_GET_NOTES");
   };
 
   // Add Note
   const addGuestNote = (note) => {
     note.id = uuidv4();
     dispatch({ type: GUEST_ADD_NOTE, payload: note });
-    console.log("GUEST_ADD_NOTE");
+    // console.log("GUEST_ADD_NOTE");
   };
 
   // Update Note
   const updateGuestNote = (note) => {
     dispatch({ type: GUEST_UPDATE_NOTE, payload: note });
-    console.log("GUEST_UPDATE_NOTE");
+    // console.log("GUEST_UPDATE_NOTE");
   };
 
   // Delete Note
   const deleteGuestNote = (note) => {
     dispatch({ type: GUEST_DELETE_NOTE, payload: note });
-    console.log("GUEST_DELETE_NOTE");
+    // console.log("GUEST_DELETE_NOTE");
   };
 
   // Filter Notes
   const guestFilterNotes = (text) => {
     dispatch({ type: GUEST_FILTER_NOTES, payload: text });
-    console.log("GUEST_FILTER_NOTES");
+    // console.log("GUEST_FILTER_NOTES");
   };
 
   // Clear Filter
   const guestClearFilter = () => {
     dispatch({ type: GUEST_CLEAR_FILTER });
-    console.log("GUEST_CLEAR_FILTER");
+    // console.log("GUEST_CLEAR_FILTER");
   };
 
   // Set Current
   const guestSetCurrent = (note) => {
     dispatch({ type: GUEST_SET_CURRENT, payload: note });
-    console.log("GUEST_SET_CURRENT");
+    // console.log("GUEST_SET_CURRENT");
   };
 
   // Clear Current
   const guestClearCurrent = () => {
     dispatch({ type: GUEST_CLEAR_CURRENT });
-    console.log("GUEST_CLEAR_CURRENT");
+    // console.log("GUEST_CLEAR_CURRENT");
   };
 
   // Clear Notes
   const guestClearNotes = () => {
-    console.log("GUEST_CLEAR_NOTES");
+    // console.log("GUEST_CLEAR_NOTES");
   };
 
   // Note Error
   const guestNotesError = () => {
-    console.log("GUEST_NOTE_ERROR");
+    // console.log("GUEST_NOTE_ERROR");
   };
 
   return (

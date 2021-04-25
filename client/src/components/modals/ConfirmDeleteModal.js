@@ -43,7 +43,7 @@ function ConfirmDeleteModal({ note, setShowConfirmModal }) {
     closeDeleteModal();
   };
 
-  console.log(title);
+  // console.log(title);
 
   return (
     <div className="d-flex justify-content-center">
