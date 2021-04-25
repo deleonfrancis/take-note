@@ -1,6 +1,7 @@
-import React, { useContext, useState} from "react";
+import React, { useContext, useState } from "react";
 import Modal from "react-modal";
 import NoteContext from "../../context/note/noteContext";
+import GuestNoteContext from "../../context/guestNote/guestNoteContext";
 
 const guestCustomStyles = {
   content: {
@@ -13,15 +14,16 @@ const guestCustomStyles = {
     height: "auto",
     width: "90%",
     border: "none",
-    backgroundColor:"#f3f4ed",
-    padding:"50px"
+    backgroundColor: "#f3f4ed",
+    padding: "50px",
   },
 };
 
 Modal.setAppElement("#root");
 
-function GuestAddNoteModal({addNoteOpen, setAddNoteOpen}) {
+function GuestAddNoteModal({ addNoteOpen, setAddNoteOpen }) {
   const noteContext = useContext(NoteContext);
+  const guestNoteContext = useContext(GuestNoteContext);
 
   const {
     afterOpenModal,
@@ -30,6 +32,8 @@ function GuestAddNoteModal({addNoteOpen, setAddNoteOpen}) {
     // setAddNoteModalOpen,
     addNote,
   } = noteContext;
+
+  const { addGuestNote } = guestNoteContext;
 
   const [note, setNote] = useState({
     title: "",
@@ -42,15 +46,8 @@ function GuestAddNoteModal({addNoteOpen, setAddNoteOpen}) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addNote(note);
-    setNote({
-      title: "",
-      body: "",
-    });
-    closeModal();
-  };
-
-  const handleCancel = (e) => {
+    // addNote(note);
+   addGuestNote()
     setNote({
       title: "",
       body: "",
@@ -58,7 +55,14 @@ function GuestAddNoteModal({addNoteOpen, setAddNoteOpen}) {
     setAddNoteOpen(false);
   };
 
-  
+  const handleCancel = (e) => {
+    e.preventDefault()
+    setNote({
+      title: "",
+      body: "",
+    });
+    setAddNoteOpen(false);
+  };
 
   return (
     <Modal
@@ -77,7 +81,7 @@ function GuestAddNoteModal({addNoteOpen, setAddNoteOpen}) {
 
       <form>
         <div className="form-group">
-        <div
+          <div
             style={{ width: "70%", margin: "auto" }}
             className="input-group mb-3"
           >
@@ -90,26 +94,28 @@ function GuestAddNoteModal({addNoteOpen, setAddNoteOpen}) {
                 <i className="fas fa-envelope-open-text fa-lg"></i>
               </span>
             </div>
-            
+
             {/* Title */}
             <label className="sr-only" htmlFor="newNoteTitle">
               Title
             </label>
             <input
               type="text"
-            name="title"
-            className="form-control noteTitleInput"
-            id="newNoteTitle"
-            placeholder="Title"
-            onChange={onChange}
-            value={title}
-            // ref={inputEl}
+              name="title"
+              className="form-control noteTitleInput"
+              id="newNoteTitle"
+              placeholder="Title"
+              onChange={onChange}
+              value={title}
+              // ref={inputEl}
             />
           </div>
         </div>
         {/* Note Body */}
         <div className="form-group mb-5">
-          <label className="sr-only" htmlFor="exampleFormControlTextarea1">Note:</label>
+          <label className="sr-only" htmlFor="exampleFormControlTextarea1">
+            Note:
+          </label>
           <textarea
             className="form-control"
             placeholder="Note"
@@ -135,13 +141,15 @@ function GuestAddNoteModal({addNoteOpen, setAddNoteOpen}) {
             </button>
           </div>
           <div className="col-sm-12">
-            <button onClick={handleCancel} className="btn btn-light btn-block shadow">
+            <button
+              onClick={handleCancel}
+              className="btn btn-light btn-block shadow"
+            >
               Cancel
             </button>
           </div>
         </div>
       </form>
-      
     </Modal>
   );
 }

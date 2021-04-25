@@ -1,4 +1,4 @@
-import React, { useReducer } from " react";
+import React, { useReducer } from "react";
 import GuestNoteContext from "./guestNoteContext";
 import guestNoteReducer from "./guestNoteReducer";
 import {
@@ -16,7 +16,30 @@ import {
 
 const GuestNoteState = (props) => {
   const initialState = {
-    guestNotes: [],
+    guestNotes: [{
+      id:"1",
+      title: "Note 1",
+      body: "This is my note 1",
+    },
+    {
+      id:"2",
+      title: "Note 2",
+      body: "This is my note 2",
+    },
+    {
+      id:"3",
+      title: "Note 3",
+      body: "This is my note 3",
+    },
+    {
+      id:"4",
+      title: "Note 4",
+      body: "This is my note 4",
+    },{
+      id:"5",
+      title: "Note 5",
+      body: "This is my note 5",
+    }],
     current: null,
     filtered: null,
     error: null,
@@ -24,65 +47,63 @@ const GuestNoteState = (props) => {
 
   const [state, dispatch] = useReducer(guestNoteReducer, initialState);
 
-// Get Notes
-const getGuestNotes = () =>{
+  // Get Notes
+  const getGuestNotes = () => {
     console.log("GUEST_GET_NOTES");
-}
+  };
 
-// Add Note
-const addGuestNotes = () =>{
+  // Add Note
+  const addGuestNote = () => {
     console.log("GUEST_ADD_NOTE");
-}
- 
-// Delete Note
-const deleteGuestNotes = () =>{
+  };
+
+  // Delete Note
+  const deleteGuestNotes = () => {
     console.log("GUEST_DELETE_NOTE");
-}
-// Update Note
-const updateGuestNotes = () =>{
+  };
+  // Update Note
+  const updateGuestNotes = () => {
     console.log("GUEST_UPDATE_NOTE");
-}
-// Set Current
-const guestSetCurrent = () =>{
+  };
+  // Set Current
+  const guestSetCurrent = () => {
     console.log("GUEST_SET_CURRENT");
-}
+  };
 
-// Clear Current
-const guestClearCurrent = () =>{
+  // Clear Current
+  const guestClearCurrent = () => {
     console.log("GUEST_CLEAR_CURRENT");
-}
+  };
 
-// Clear Notes
-const guestClearNotes = () =>{
+  // Clear Notes
+  const guestClearNotes = () => {
     console.log("GUEST_CLEAR_NOTES");
-}
+  };
 
-// Filter Notes
-const guestFilterNotes = () =>{
+  // Filter Notes
+  const guestFilterNotes = () => {
     console.log("GUEST_FILTER_NOTES");
-}
+  };
 
-// Note Error
-const guestNotesError = () =>{
+  // Note Error
+  const guestNotesError = () => {
     console.log("GUEST_NOTE_ERROR");
-}
+  };
 
-// Clear Filter
-const guestClearFilter = () =>{
+  // Clear Filter
+  const guestClearFilter = () => {
     console.log("GUEST_CLEAR_FILTER");
-}
-
+  };
 
   return (
-    <GuestNoteContext.Provider>
-      value=
-      {{
+    <GuestNoteContext.Provider
+      value={{
         guestNotes: state.guestNotes,
         current: state.current,
         filtered: state.filtered,
         error: state.error,
         getGuestNotes,
-        addGuestNotes,
+        addGuestNote,
         deleteGuestNotes,
         updateGuestNotes,
         guestSetCurrent,
@@ -90,8 +111,9 @@ const guestClearFilter = () =>{
         guestClearNotes,
         guestFilterNotes,
         guestNotesError,
-        guestClearFilter
+        guestClearFilter,
       }}
+    >
       {props.children}
     </GuestNoteContext.Provider>
   );
