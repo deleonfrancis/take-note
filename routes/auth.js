@@ -62,7 +62,7 @@ router.post(
         payload,
         config.get("jwtSecret"),
         {
-          expiresIn: 360000,
+          expiresIn: 36000,
         },
         (err, token) => {
           if (err) throw err;
@@ -72,25 +72,9 @@ router.post(
     } catch (error) {
       console.error(error.message);
       // server error
-      res.status(500).send("Server Error");
+      res.status(500).send("Server Error, there seems to be an error");
     }
-    // res.json({
-    //   msg:
-    //     "hello post user, sends the data to get authenticated and return a token.",
-    // });
   }
 );
-
-// delete a user
-// router.delete("/:id", auth,  async (req, res, next) => {
-//   try {
-//     const user = await User.findByIdAndRemove(req.params.id).exec();
-
-//   } catch (error) {
-//     console.error(error.msg);
-//     res.status(500).send("Server Error")
-//   }
-//   res.json({ msg: "user deleted" });
-// });
 
 module.exports = router;
