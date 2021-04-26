@@ -2,8 +2,8 @@ import React, { useReducer } from "react";
 import { v4 as uuidv4 } from "uuid";
 import GuestNoteContext from "./guestNoteContext";
 import guestNoteReducer from "./guestNoteReducer";
+import Localbase from "localbase";
 import {
-  // eslint-disable-next-line
   GUEST_GET_NOTES,
   GUEST_ADD_NOTE,
   GUEST_DELETE_NOTE,
@@ -54,27 +54,52 @@ const GuestNoteState = (props) => {
 
   const [state, dispatch] = useReducer(guestNoteReducer, initialState);
 
+  let db = new Localbase("db");
+
   // Get Notes
   const getGuestNotes = () => {
-    // console.log("GUEST_GET_NOTES");
+    db.collection("takeNote")
+    .get()
+    .then((note) => {
+      console.log(note);
+      dispatch({ type: GUEST_GET_NOTES, payload: note });
+      // console.log("GUEST_GET_NOTES");
+      });
   };
 
   // Add Note
   const addGuestNote = (note) => {
     note.id = uuidv4();
+    db.collection("takeNote").add({
+      id: note.id,
+      title: note.title,
+      body: note.body,
+    });
     dispatch({ type: GUEST_ADD_NOTE, payload: note });
     // console.log("GUEST_ADD_NOTE");
   };
 
   // Update Note
   const updateGuestNote = (note) => {
+    db.collection("takeNote").doc({ id: note.id }).update({
+      title: note.title,
+      body: note.body,
+    });
     dispatch({ type: GUEST_UPDATE_NOTE, payload: note });
     // console.log("GUEST_UPDATE_NOTE");
   };
 
   // Delete Note
   const deleteGuestNote = (note) => {
-    dispatch({ type: GUEST_DELETE_NOTE, payload: note });
+    db.collection('takeNote')
+    .doc({ id: note })
+    .delete()
+    .then(response => {
+      dispatch({ type: GUEST_DELETE_NOTE, payload: note });
+    })
+    .catch(error => {
+      console.log(`There was an error trying to delete ${note.id}`)
+    })
     // console.log("GUEST_DELETE_NOTE");
   };
 
