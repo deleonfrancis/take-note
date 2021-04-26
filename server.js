@@ -30,7 +30,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // home endpoint(route)
-// app.get("/", (req, res) => res.json({ msg: "hello json" }));
+app.get("/", (req, res) => res.json({ msg: "hello json" }));
 
 // variable for port listening on. process.env.port will be used in deployment and 5000 will be used in production
 const PORT = process.env.PORT || 7000;
