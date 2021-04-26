@@ -4,6 +4,8 @@ const express = require("express");
 // bring in db.js
 const connectDB = require("./config/db");
 
+const path = require("path");
+
 connectDB();
 
 // initialize express as a variable called app
@@ -16,6 +18,16 @@ app.use(express.json({ extended: false }));
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/notes", require("./routes/notes"));
 app.use("/api/users", require("./routes/users"));
+
+// Serve static assests in production
+if (process.env.NODE_ENV === "production") {
+  // set a static folder
+  app.use(express.static("client/build"));
+
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
+  );
+}
 
 // home endpoint(route)
 app.get("/", (req, res) => res.json({ msg: "hello json" }));
