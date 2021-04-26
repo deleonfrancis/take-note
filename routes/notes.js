@@ -80,8 +80,8 @@ router.delete("/:id", auth, async (req, res) => {
       return res.status(401).json({ msg: "Not Authorized." });
 
     //   Delete the note
-    await Note.findByIdAndRemove(req.params.id)
-    res.json({msg: "Note removed."})
+    await Note.findByIdAndRemove(req.params.id);
+    res.json({ msg: "Note removed." });
   } catch (error) {
     console.error(error.message);
     res.status(500).send("server error.");

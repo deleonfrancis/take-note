@@ -40,7 +40,7 @@ router.post(
       // if there is already an email like what the user typed in
       if (user) {
         // bad request with msg
-        res
+        return res
           .status(400)
           // .json({ msg: `A user with the email ${email} already exist.` });
           .json({ msg: "User already exists" });
