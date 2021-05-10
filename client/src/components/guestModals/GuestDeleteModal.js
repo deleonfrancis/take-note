@@ -31,7 +31,7 @@ function GuestDeleteModal({ note, setShowGuestConfirmModal }) {
     afterDeleteOpenModal,
   } = noteContext;
 
-  const { deleteGuestNote, guestClearCurrent } = guestNoteContext;
+  const { deleteGuestNote, guestClearCurrent, guestClearFilter } = guestNoteContext;
 
   const { id, title } = note;
 
@@ -40,6 +40,8 @@ function GuestDeleteModal({ note, setShowGuestConfirmModal }) {
     deleteGuestNote(id);
     guestClearCurrent()
     setShowGuestConfirmModal(false);
+    guestClearFilter()
+
     // closeDeleteModal();
   };
 
